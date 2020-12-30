@@ -3,360 +3,410 @@ function main() {
   var gl = canvas.getContext("webgl");
 
   var vertices = [];
-  var objectPoints = [
-    [-0.975, -0.8,  0.1], // 0
-    [-0.975,  0.8,  0.1], // 1
-    [-0.8,    0.8,  0.1], // 2
-    [-0.8,   -0.8,  0.1], // 3
 
-    [-0.8,    0.65, 0.1], // 4
-    [-0.35,   0.65, 0.1], // 5
-    [-0.25,   0.8,  0.1], // 6
-    
-    [-0.1,    0.65, 0.1], // 7
-    [-0.25,   0.55, 0.1], // 8
+  const rLetters = {
+    objectPoints: [
+      [-0.975, -0.8,  0.1], // 0
+      [-0.975,  0.8,  0.1], // 1
+      [-0.8,    0.8,  0.1], // 2
+      [-0.8,   -0.8,  0.1], // 3
 
-    [-0.25,   0.15, 0.1], // 9
-    [-0.1,    0.05, 0.1], // 10
-    
-    [-0.25,  -0.1,  0.1],  // 11
-    [-0.35,   0.05, 0.1],  // 12
-    
-    [-0.8,    0.05, 0.1], // 13
-    [-0.8,   -0.1,  0.1], // 14
+      [-0.8,    0.65, 0.1], // 4
+      [-0.35,   0.65, 0.1], // 5
+      [-0.25,   0.8,  0.1], // 6
+      
+      [-0.1,    0.65, 0.1], // 7
+      [-0.25,   0.55, 0.1], // 8
 
-    [-0.5,   -0.1,  0.1], // 15
-    [-0.1,   -0.8,  0.1], // 16
-    [-0.25,  -0.8,  0.1], // 17
-    [-0.7,   -0.1,  0.1], // 18
+      [-0.25,   0.15, 0.1], // 9
+      [-0.1,    0.05, 0.1], // 10
+      
+      [-0.25,  -0.1,  0.1],  // 11
+      [-0.35,   0.05, 0.1],  // 12
+      
+      [-0.8,    0.05, 0.1], // 13
+      [-0.8,   -0.1,  0.1], // 14
 
-    [-0.975, -0.8,  -0.1], // 0
-    [-0.975,  0.8,  -0.1], // 1
-    [-0.8,    0.8,  -0.1], // 2
-    [-0.8,   -0.8,  -0.1], // 3
+      [-0.5,   -0.1,  0.1], // 15
+      [-0.1,   -0.8,  0.1], // 16
+      [-0.25,  -0.8,  0.1], // 17
+      [-0.7,   -0.1,  0.1], // 18
 
-    [-0.8,    0.65, -0.1], // 4
-    [-0.35,   0.65, -0.1], // 5
-    [-0.25,   0.8,  -0.1], // 6
-    
-    [-0.1,    0.65, -0.1], // 7
-    [-0.25,   0.55, -0.1], // 8
+      [-0.975, -0.8,  -0.1], // 0
+      [-0.975,  0.8,  -0.1], // 1
+      [-0.8,    0.8,  -0.1], // 2
+      [-0.8,   -0.8,  -0.1], // 3
 
-    [-0.25,   0.15, -0.1], // 9
-    [-0.1,    0.05, -0.1], // 10
-    
-    [-0.25,  -0.1,  -0.1],  // 11
-    [-0.35,   0.05, -0.1],  // 12
-    
-    [-0.8,    0.05, -0.1], // 13
-    [-0.8,   -0.1,  -0.1], // 14
+      [-0.8,    0.65, -0.1], // 4
+      [-0.35,   0.65, -0.1], // 5
+      [-0.25,   0.8,  -0.1], // 6
+      
+      [-0.1,    0.65, -0.1], // 7
+      [-0.25,   0.55, -0.1], // 8
 
-    [-0.5,   -0.1,  -0.1], // 15
-    [-0.1,   -0.8,  -0.1], // 16
-    [-0.25,  -0.8,  -0.1], // 17
-    [-0.7,   -0.1,  -0.1], // 18
+      [-0.25,   0.15, -0.1], // 9
+      [-0.1,    0.05, -0.1], // 10
+      
+      [-0.25,  -0.1,  -0.1],  // 11
+      [-0.35,   0.05, -0.1],  // 12
+      
+      [-0.8,    0.05, -0.1], // 13
+      [-0.8,   -0.1,  -0.1], // 14
 
-    [-0.975+1.075, -0.8,  0.1], // 0
-    [-0.975+1.075,  0.8,  0.1], // 1
-    [-0.8+1.075,    0.8,  0.1], // 2
-    [-0.8+1.075,   -0.8,  0.1], // 3
+      [-0.5,   -0.1,  -0.1], // 15
+      [-0.1,   -0.8,  -0.1], // 16
+      [-0.25,  -0.8,  -0.1], // 17
+      [-0.7,   -0.1,  -0.1], // 18
 
-    [-0.8+1.075,    0.65, 0.1], // 4
-    [-0.35+1.075,   0.65, 0.1], // 5
-    [-0.25+1.075,   0.8,  0.1], // 6
-    
-    [-0.1+1.075,    0.65, 0.1], // 7
-    [-0.25+1.075,   0.55, 0.1], // 8
+      [-0.975+1.075, -0.8,  0.1], // 0
+      [-0.975+1.075,  0.8,  0.1], // 1
+      [-0.8+1.075,    0.8,  0.1], // 2
+      [-0.8+1.075,   -0.8,  0.1], // 3
 
-    [-0.25+1.075,   0.15, 0.1], // 9
-    [-0.1+1.075,    0.05, 0.1], // 10
-    
-    [-0.25+1.075,  -0.1,  0.1],  // 11
-    [-0.35+1.075,   0.05, 0.1],  // 12
-    
-    [-0.8+1.075,    0.05, 0.1], // 13
-    [-0.8+1.075,   -0.1,  0.1], // 14
+      [-0.8+1.075,    0.65, 0.1], // 4
+      [-0.35+1.075,   0.65, 0.1], // 5
+      [-0.25+1.075,   0.8,  0.1], // 6
+      
+      [-0.1+1.075,    0.65, 0.1], // 7
+      [-0.25+1.075,   0.55, 0.1], // 8
 
-    [-0.5+1.075,   -0.1,  0.1], // 15
-    [-0.1+1.075,   -0.8,  0.1], // 16
-    [-0.25+1.075,  -0.8,  0.1], // 17
-    [-0.7+1.075,   -0.1,  0.1], // 18
+      [-0.25+1.075,   0.15, 0.1], // 9
+      [-0.1+1.075,    0.05, 0.1], // 10
+      
+      [-0.25+1.075,  -0.1,  0.1],  // 11
+      [-0.35+1.075,   0.05, 0.1],  // 12
+      
+      [-0.8+1.075,    0.05, 0.1], // 13
+      [-0.8+1.075,   -0.1,  0.1], // 14
 
-    [-0.975+1.075, -0.8,  -0.1], // 0
-    [-0.975+1.075,  0.8,  -0.1], // 1
-    [-0.8+1.075,    0.8,  -0.1], // 2
-    [-0.8+1.075,   -0.8,  -0.1], // 3
+      [-0.5+1.075,   -0.1,  0.1], // 15
+      [-0.1+1.075,   -0.8,  0.1], // 16
+      [-0.25+1.075,  -0.8,  0.1], // 17
+      [-0.7+1.075,   -0.1,  0.1], // 18
 
-    [-0.8+1.075,    0.65, -0.1], // 4
-    [-0.35+1.075,   0.65, -0.1], // 5
-    [-0.25+1.075,   0.8,  -0.1], // 6
-    
-    [-0.1+1.075,    0.65, -0.1], // 7
-    [-0.25+1.075,   0.55, -0.1], // 8
+      [-0.975+1.075, -0.8,  -0.1], // 0
+      [-0.975+1.075,  0.8,  -0.1], // 1
+      [-0.8+1.075,    0.8,  -0.1], // 2
+      [-0.8+1.075,   -0.8,  -0.1], // 3
 
-    [-0.25+1.075,   0.15, -0.1], // 9
-    [-0.1+1.075,    0.05, -0.1], // 10
-    
-    [-0.25+1.075,  -0.1,  -0.1],  // 11
-    [-0.35+1.075,   0.05, -0.1],  // 12
-    
-    [-0.8+1.075,    0.05, -0.1], // 13
-    [-0.8+1.075,   -0.1,  -0.1], // 14
+      [-0.8+1.075,    0.65, -0.1], // 4
+      [-0.35+1.075,   0.65, -0.1], // 5
+      [-0.25+1.075,   0.8,  -0.1], // 6
+      
+      [-0.1+1.075,    0.65, -0.1], // 7
+      [-0.25+1.075,   0.55, -0.1], // 8
 
-    [-0.5+1.075,   -0.1,  -0.1], // 15
-    [-0.1+1.075,   -0.8,  -0.1], // 16
-    [-0.25+1.075,  -0.8,  -0.1], // 17
-    [-0.7+1.075,   -0.1,  -0.1], // 18
-  ];
-  var objectColors = [
-    [],
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    [1.0, 0.0, 0.0],    // merah
-    []
-  ];
+      [-0.25+1.075,   0.15, -0.1], // 9
+      [-0.1+1.075,    0.05, -0.1], // 10
+      
+      [-0.25+1.075,  -0.1,  -0.1],  // 11
+      [-0.35+1.075,   0.05, -0.1],  // 12
+      
+      [-0.8+1.075,    0.05, -0.1], // 13
+      [-0.8+1.075,   -0.1,  -0.1], // 14
 
-  var objectNormals = [
-    [],
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, 1.0],    // depan
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    [0.0, 0.0, -1.0],    // belakang
-    []
-  ];
+      [-0.5+1.075,   -0.1,  -0.1], // 15
+      [-0.1+1.075,   -0.8,  -0.1], // 16
+      [-0.25+1.075,  -0.8,  -0.1], // 17
+      [-0.7+1.075,   -0.1,  -0.1], // 18
+    ],
 
-  function quad(a, b, c, d) {
+    objectColors: [
+      [],
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      [1.0, 0.0, 0.0],    // merah
+      []
+    ],
+
+    objectNormals: [
+      [],
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, 1.0],    // depan
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      [0.0, 0.0, -1.0],    // belakang
+      []
+    ],
+  }
+
+  const cube = {
+    objectPoints: [
+      [-0.05,  0.05,  0.05],   // A, 0
+      [-0.05, -0.05,  0.05],   // B, 1
+      [ 0.05, -0.05,  0.05],   // C, 2 
+      [ 0.05,  0.05,  0.05],   // D, 3
+      [-0.05,  0.05, -0.05],   // E, 4
+      [-0.05, -0.05, -0.05],   // F, 5
+      [ 0.05, -0.05, -0.05],   // G, 6
+      [ 0.05,  0.05, -0.05]    // H, 7 
+    ],
+  
+    objectColors: [
+      [],
+      [1.0, 1.0, 1.0],    // putih
+      [1.0, 1.0, 1.0],    // putih
+      [1.0, 1.0, 1.0],    // putih
+      [1.0, 1.0, 1.0],    // putih
+      [1.0, 1.0, 1.0],    // putih
+      [1.0, 1.0, 1.0],    // putih
+      []
+    ],
+  
+    objectNormals: [
+      [],
+      [0.0, 0.0, 1.0],    // depan
+      [1.0, 0.0, 0.0],    // kanan
+      [0.0, 1.0, 0.0],    // atas
+      [-1.0, 0.0, 0.0],   // kiri
+      [0.0, 0.0, -1.0],   // belakang
+      [0.0, -1.0, 0.0],   // bawah
+      []
+    ],
+  }
+
+  function quad(a, b, c, d, object) {
     var indices = [a, b, c, c, d, a];
     for (var i=0; i<indices.length; i++) {
-      var point = objectPoints[indices[i]];  // [x, y, z]
+      var point = object.objectPoints[indices[i]];  // [x, y, z]
       for (var j=0; j<point.length; j++) {
         vertices.push(point[j]);
       }
-      var color = objectColors[a]; // [r, g, b]
+      var color = object.objectColors[a]; // [r, g, b]
       for (var j=0; j<color.length; j++) {
         vertices.push(color[j]);
       }
-      var normal = objectNormals[a];
+      var normal = object.objectNormals[a];
       for (var j=0; j<normal.length; j++) {
         vertices.push(normal[j]);
       }
     }
   }
-  quad(1, 2, 3, 0); // DEPAN, merah
-  quad(2, 4, 5, 6); // DEPAN, merah
-  quad(5, 6, 7, 8); // DEPAN, merah
-  quad(7, 8, 9, 10); // DEPAN, merah
-  quad(9, 10, 11, 12); // DEPAN, merah
-  quad(11, 12, 13, 14); // DEPAN, merah
-  quad(15, 16, 17, 18); // DEPAN, merah
+  
+  //Cube
+  quad(1, 2, 3, 0, cube); // DEPAN, merah
+  quad(2, 6, 7, 3, cube); // KANAN, hijau
+  quad(3, 7, 4, 0, cube); // ATAS, biru
+  quad(4, 5, 1, 0, cube); // KIRI, putih
+  quad(5, 4, 7, 6, cube); // BELAKANG, oranye
+  quad(6, 2, 1, 5, cube); // BAWAH, kuning
+
+  //R
+  quad(1, 2, 3, 0, rLetters); // DEPAN, merah
+  quad(2, 4, 5, 6, rLetters); // DEPAN, merah
+  quad(5, 6, 7, 8, rLetters); // DEPAN, merah
+  quad(7, 8, 9, 10, rLetters); // DEPAN, merah
+  quad(9, 10, 11, 12, rLetters); // DEPAN, merah
+  quad(11, 12, 13, 14, rLetters); // DEPAN, merah
+  quad(15, 16, 17, 18, rLetters); // DEPAN, merah
+
   let quadOffset = 19;
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset); // DEPAN, merah
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset); // DEPAN, merah
-  quad(5+quadOffset, 6+quadOffset, 7+quadOffset, 8+quadOffset); // DEPAN, merah
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset); // DEPAN, merah
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset); // DEPAN, merah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset); // DEPAN, merah
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset); // DEPAN, merah
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters); // DEPAN, merah
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters); // DEPAN, merah
+  quad(5+quadOffset, 6+quadOffset, 7+quadOffset, 8+quadOffset, rLetters); // DEPAN, merah
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters); // DEPAN, merah
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters); // DEPAN, merah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters); // DEPAN, merah
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters); // DEPAN, merah
 
-  quad(0+quadOffset, 0, 1, 1+quadOffset); // KIRI, merah
-  quad(6+quadOffset, 6, 1, 1+quadOffset); // ATAS, merah
-  quad(6+quadOffset, 6, 7, 7+quadOffset); // ATAS, merah
-  quad(10+quadOffset, 10, 7, 7+quadOffset); // ATAS, merah
-  quad(10+quadOffset, 10, 11, 11+quadOffset); // ATAS, merah
-  quad(15+quadOffset, 15, 11, 11+quadOffset); // ATAS, merah
-  quad(15+quadOffset, 15, 16, 16+quadOffset); // ATAS, merah
-  quad(17+quadOffset, 17, 16, 16+quadOffset); // ATAS, merah
-  quad(17+quadOffset, 17, 18, 18+quadOffset); // ATAS, merah
-  quad(14+quadOffset, 14, 18, 18+quadOffset); // ATAS, merah
-  quad(14+quadOffset, 14, 3, 3+quadOffset); // ATAS, merah
-  quad(0+quadOffset, 0, 3, 3+quadOffset); // ATAS, merah
+  quad(0+quadOffset, 0, 1, 1+quadOffset, rLetters); // KIRI, merah
+  quad(6+quadOffset, 6, 1, 1+quadOffset, rLetters); // ATAS, merah
+  quad(6+quadOffset, 6, 7, 7+quadOffset, rLetters); // ATAS, merah
+  quad(10+quadOffset, 10, 7, 7+quadOffset, rLetters); // ATAS, merah
+  quad(10+quadOffset, 10, 11, 11+quadOffset, rLetters); // ATAS, merah
+  quad(15+quadOffset, 15, 11, 11+quadOffset, rLetters); // ATAS, merah
+  quad(15+quadOffset, 15, 16, 16+quadOffset, rLetters); // ATAS, merah
+  quad(17+quadOffset, 17, 16, 16+quadOffset, rLetters); // ATAS, merah
+  quad(17+quadOffset, 17, 18, 18+quadOffset, rLetters); // ATAS, merah
+  quad(14+quadOffset, 14, 18, 18+quadOffset, rLetters); // ATAS, merah
+  quad(14+quadOffset, 14, 3, 3+quadOffset, rLetters); // ATAS, merah
+  quad(0+quadOffset, 0, 3, 3+quadOffset, rLetters); // ATAS, merah
 
-  quad(4+quadOffset, 4, 5, 5+quadOffset); // ATAS, merah
-  quad(8+quadOffset, 8, 5, 5+quadOffset); // ATAS, merah
-  quad(8+quadOffset, 8, 9, 9+quadOffset); // ATAS, merah
-  quad(12+quadOffset, 12, 9, 9+quadOffset); // ATAS, merah
-  quad(12+quadOffset, 12, 13, 13+quadOffset); // ATAS, merah
-  quad(4+quadOffset, 4, 13, 13+quadOffset); // ATAS, merah
+  quad(4+quadOffset, 4, 5, 5+quadOffset, rLetters); // ATAS, merah
+  quad(8+quadOffset, 8, 5, 5+quadOffset, rLetters); // ATAS, merah
+  quad(8+quadOffset, 8, 9, 9+quadOffset, rLetters); // ATAS, merah
+  quad(12+quadOffset, 12, 9, 9+quadOffset, rLetters); // ATAS, merah
+  quad(12+quadOffset, 12, 13, 13+quadOffset, rLetters); // ATAS, merah
+  quad(4+quadOffset, 4, 13, 13+quadOffset, rLetters); // ATAS, merah
 
   quadOffset += 19;
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset); // DEPAN, merah
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset); // DEPAN, merah
-  quad(5+quadOffset, 6+quadOffset, 7+quadOffset, 8+quadOffset); // DEPAN, merah
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset); // DEPAN, merah
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset); // DEPAN, merah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset); // DEPAN, merah
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset); // DEPAN, merah
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters); // DEPAN, merah
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters); // DEPAN, merah
+  quad(5+quadOffset, 6+quadOffset, 7+quadOffset, 8+quadOffset, rLetters); // DEPAN, merah
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters); // DEPAN, merah
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters); // DEPAN, merah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters); // DEPAN, merah
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters); // DEPAN, merah
 
   let objectOffset = quadOffset;
   quadOffset += 19;
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset); // DEPAN, merah
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset); // DEPAN, merah
-  quad(5+quadOffset, 6+quadOffset, 7+quadOffset, 8+quadOffset); // DEPAN, merah
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset); // DEPAN, merah
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset); // DEPAN, merah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset); // DEPAN, merah
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset); // DEPAN, merah
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters); // DEPAN, merah
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters); // DEPAN, merah
+  quad(5+quadOffset, 6+quadOffset, 7+quadOffset, 8+quadOffset, rLetters); // DEPAN, merah
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters); // DEPAN, merah
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters); // DEPAN, merah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters); // DEPAN, merah
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters); // DEPAN, merah
 
-  quad(0+quadOffset, 0+objectOffset, 1+objectOffset, 1+quadOffset); // KIRI, merah
-  quad(6+quadOffset, 6+objectOffset, 1+objectOffset, 1+quadOffset); // ATAS, merah
-  quad(6+quadOffset, 6+objectOffset, 7+objectOffset, 7+quadOffset); // ATAS, merah
-  quad(10+quadOffset, 10+objectOffset, 7+objectOffset, 7+quadOffset); // ATAS, merah
-  quad(10+quadOffset, 10+objectOffset, 11+objectOffset, 11+quadOffset); // ATAS, merah
-  quad(15+quadOffset, 15+objectOffset, 11+objectOffset, 11+quadOffset); // ATAS, merah
-  quad(15+quadOffset, 15+objectOffset, 16+objectOffset, 16+quadOffset); // ATAS, merah
-  quad(17+quadOffset, 17+objectOffset, 16+objectOffset, 16+quadOffset); // ATAS, merah
-  quad(17+quadOffset, 17+objectOffset, 18+objectOffset, 18+quadOffset); // ATAS, merah
-  quad(14+quadOffset, 14+objectOffset, 18+objectOffset, 18+quadOffset); // ATAS, merah
-  quad(14+quadOffset, 14+objectOffset, 3+objectOffset, 3+quadOffset); // ATAS, merah
-  quad(0+quadOffset, 0+objectOffset, 3+objectOffset, 3+quadOffset); // ATAS, merah
+  quad(0+quadOffset, 0+objectOffset, 1+objectOffset, 1+quadOffset, rLetters); // KIRI, merah
+  quad(6+quadOffset, 6+objectOffset, 1+objectOffset, 1+quadOffset, rLetters); // ATAS, merah
+  quad(6+quadOffset, 6+objectOffset, 7+objectOffset, 7+quadOffset, rLetters); // ATAS, merah
+  quad(10+quadOffset, 10+objectOffset, 7+objectOffset, 7+quadOffset, rLetters); // ATAS, merah
+  quad(10+quadOffset, 10+objectOffset, 11+objectOffset, 11+quadOffset, rLetters); // ATAS, merah
+  quad(15+quadOffset, 15+objectOffset, 11+objectOffset, 11+quadOffset, rLetters); // ATAS, merah
+  quad(15+quadOffset, 15+objectOffset, 16+objectOffset, 16+quadOffset, rLetters); // ATAS, merah
+  quad(17+quadOffset, 17+objectOffset, 16+objectOffset, 16+quadOffset, rLetters); // ATAS, merah
+  quad(17+quadOffset, 17+objectOffset, 18+objectOffset, 18+quadOffset, rLetters); // ATAS, merah
+  quad(14+quadOffset, 14+objectOffset, 18+objectOffset, 18+quadOffset, rLetters); // ATAS, merah
+  quad(14+quadOffset, 14+objectOffset, 3+objectOffset, 3+quadOffset, rLetters); // ATAS, merah
+  quad(0+quadOffset, 0+objectOffset, 3+objectOffset, 3+quadOffset, rLetters); // ATAS, merah
 
-  quad(4+quadOffset, 4+objectOffset, 5+objectOffset, 5+quadOffset); // ATAS, merah
-  quad(8+quadOffset, 8+objectOffset, 5+objectOffset, 5+quadOffset); // ATAS, merah
-  quad(8+quadOffset, 8+objectOffset, 9+objectOffset, 9+quadOffset); // ATAS, merah
-  quad(12+quadOffset, 12+objectOffset, 9+objectOffset, 9+quadOffset); // ATAS, merah
-  quad(12+quadOffset, 12+objectOffset, 13+objectOffset, 13+quadOffset); // ATAS, merah
-  quad(4+quadOffset, 4+objectOffset, 13+objectOffset, 13+quadOffset); // ATAS, merah
+  quad(4+quadOffset, 4+objectOffset, 5+objectOffset, 5+quadOffset, rLetters); // ATAS, merah
+  quad(8+quadOffset, 8+objectOffset, 5+objectOffset, 5+quadOffset, rLetters); // ATAS, merah
+  quad(8+quadOffset, 8+objectOffset, 9+objectOffset, 9+quadOffset, rLetters); // ATAS, merah
+  quad(12+quadOffset, 12+objectOffset, 9+objectOffset, 9+quadOffset, rLetters); // ATAS, merah
+  quad(12+quadOffset, 12+objectOffset, 13+objectOffset, 13+quadOffset, rLetters); // ATAS, merah
+  quad(4+quadOffset, 4+objectOffset, 13+objectOffset, 13+quadOffset, rLetters); // ATAS, merah
 
   var vertexBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
