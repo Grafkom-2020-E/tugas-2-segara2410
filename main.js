@@ -331,7 +331,7 @@ function main() {
   quad(5, 4, 7, 6, cube); // BELAKANG, oranye
   quad(6, 2, 1, 5, cube); // BAWAH, kuning
 
-  //R
+  //R 1
   quad(1, 2, 3, 0, rLetters); // DEPAN, merah
   quad(2, 4, 5, 6, rLetters); // DEPAN, merah
   quad(5, 6, 7, 8, rLetters); // DEPAN, merah
@@ -369,6 +369,7 @@ function main() {
   quad(12+quadOffset, 12, 13, 13+quadOffset, rLetters); // ATAS, merah
   quad(4+quadOffset, 4, 13, 13+quadOffset, rLetters); // ATAS, merah
 
+  //R2
   quadOffset += 19;
   quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters); // DEPAN, merah
   quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters); // DEPAN, merah
@@ -477,7 +478,7 @@ function main() {
 
   var primitive = gl.TRIANGLES;
   var offset = 0;
-  var nVertex = 384;
+  var nVertex = 420;
 
   var u_Model = gl.getUniformLocation(shaderProgram, 'u_Model');
   var u_View = gl.getUniformLocation(shaderProgram, 'u_View');
