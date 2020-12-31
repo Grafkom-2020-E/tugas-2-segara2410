@@ -196,82 +196,87 @@ function main() {
     ],
 
     objectNormals: [
+      //R1
       [],
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, 1.0],    // depan
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      [0.0, 0.0, -1.0],    // belakang
-      []
+      [0.0, 0.0, 1.0],    // merah, belakang, a, 1
+      [0.0, 0.0, 1.0],    // merah, belakang, b, 2
+      [], // 3
+      [1.0, 0.0, 0.0],    // merah, kanan, a, 4
+      [0.0, 0.0, 1.0],    // merah, belakang, c, 5
+      [0.0, 1.0, 0.0],    // merah, atas, a, 6
+      [0.5, 0.5, 0.0],    // merah, ataskanan, a, 7 
+      [0.0, 0.0, 1.0],    // merah, belakang, d, 8
+      [0.0, 0.0, 1.0],    // merah, belakang, e, 9
+      [1.0, 0.0, 0.0],    // merah, kanan, b, 10
+      [0.0, -1.0, 0.0],    // merah, bawah, b, 11
+      [-0.5, 0.5, 0.0],    // merah, ataskiri, 12
+      [0.0, 0.0, 1.0],    // merah, belakang, f, 13
+      [1.0, 0.0, 0.0],    // merah, kanan, c, 14
+      [0.5, 0.5, 0.0],    // merah, ataskanan, b, 15
+      [0.0, 0.0, 1.0],    // merah, belakang, g, 16
+      [], // 17
+      [], // 18
+      // + 19
+      [-1.0, 0.0, 0.0],    // merah, kiri, a, 0
+      [0.0, 0.0, -1.0],    // merah, depan, a, 1
+      [0.0, 0.0, -1.0],    // merah, depan, b, 2
+      [0.0, -1.0, 0.0],    // merah, bawah, e, 3
+      [0.0, -1.0, 0.0],    // merah, bawah, a, 4
+      [-0.5, -0.5, 0.0],    // merah, kiribawah, a, 5
+      [0.0, 0.0, -1.0],    // merah, depan, c, 6
+      [0.0, 0.0, -1.0],    // merah, depan, d, 7
+      [-1.0, 0.0, 0.0],    // merah, kiri, b, 8
+      [0.0, 0.0, -1.0],    // merah, depan, e, 9
+      [1.0, 0.0, 0.0],    // merah, kananbawah, 10
+      [0.0, 0.0, -1.0],    // merah, depan, f, 11
+      [0.0, 1.0, 0.0],    // merah, atas, b, 12
+      [], // 13
+      [0.0, -1.0, 0.0],    // merah, bawah, d, 14
+      [0.0, 0.0, -1.0],    // merah, depan, g, 15
+      [0.0, -1.0, 0.0],    // merah, bawah, c, 16
+      [-0.5, -0.5, 0.0],    // merah, kiribawah, b, 17
+      [], // 18
+      // + 38
+      //R1
+      [],
+      [0.0, 0.0, 1.0],    // merah, belakang, a, 1
+      [0.0, 0.0, 1.0],    // merah, belakang, b, 2
+      [], // 3
+      [1.0, 0.0, 0.0],    // merah, kanan, a, 4
+      [0.0, 0.0, 1.0],    // merah, belakang, c, 5
+      [0.0, 1.0, 0.0],    // merah, atas, a, 6
+      [0.5, 0.5, 0.0],    // merah, ataskanan, a, 7 
+      [0.0, 0.0, 1.0],    // merah, belakang, d, 8
+      [0.0, 0.0, 1.0],    // merah, belakang, e, 9
+      [1.0, 0.0, 0.0],    // merah, kanan, b, 10
+      [0.0, -1.0, 0.0],    // merah, bawah, b, 11
+      [-0.5, 0.5, 0.0],    // merah, ataskiri, 12
+      [0.0, 0.0, 1.0],    // merah, belakang, f, 13
+      [1.0, 0.0, 0.0],    // merah, kanan, c, 14
+      [0.5, 0.5, 0.0],    // merah, ataskanan, b, 15
+      [0.0, 0.0, 1.0],    // merah, belakang, g, 16
+      [], // 17
+      [], // 18
+      // + 19
+      [-1.0, 0.0, 0.0],    // merah, kiri, a, 0
+      [0.0, 0.0, -1.0],    // merah, depan, a, 1
+      [0.0, 0.0, -1.0],    // merah, depan, b, 2
+      [0.0, -1.0, 0.0],    // merah, bawah, e, 3
+      [0.0, -1.0, 0.0],    // merah, bawah, a, 4
+      [-0.5, -0.5, 0.0],    // merah, kiribawah, a, 5
+      [0.0, 0.0, -1.0],    // merah, depan, c, 6
+      [0.0, 0.0, -1.0],    // merah, depan, d, 7
+      [-1.0, 0.0, 0.0],    // merah, kiri, b, 8
+      [0.0, 0.0, -1.0],    // merah, depan, e, 9
+      [1.0, 0.0, 0.0],    // merah, kananbawah, 10
+      [0.0, 0.0, -1.0],    // merah, depan, f, 11
+      [0.0, 1.0, 0.0],    // merah, atas, b, 12
+      [], // 13
+      [0.0, -1.0, 0.0],    // merah, bawah, d, 14
+      [0.0, 0.0, -1.0],    // merah, depan, g, 15
+      [0.0, -1.0, 0.0],    // merah, bawah, c, 16
+      [-0.5, -0.5, 0.0],    // merah, kiribawah, b, 17
+      [], // 18
     ],
   }
 
