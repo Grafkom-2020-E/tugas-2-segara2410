@@ -493,6 +493,21 @@ function main() {
   var projection = glMatrix.mat4.create();
   gl.uniformMatrix4fv(u_Projection, false, projection);
 
+  var uNormalModel = gl.getUniformLocation(shaderProgram, 'u_NormalModel');
+  var uAmbientColor = gl.getUniformLocation(shaderProgram, 'u_AmbientColor');
+  gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
+  var uLightColor = gl.getUniformLocation(shaderProgram, 'u_LightColor');
+  gl.uniform3fv(uLightColor, [1, 1, 1]);
+  var uLightPosition = gl.getUniformLocation(shaderProgram, 'u_LightPosition');
+
+  const moveCubeY = (distance) => {
+    for (let i = 1; i <= 36; i++) {
+      vertices[1 + (9 * (i - 1))] += distance;
+    };
+  };
+
+  let lightYPosition = 0;
+  const distanceYMovement = 0.01;
   function onKeyDown(event) {
     console.log(event.keyCode);
     if (event.keyCode == 68) {  // D = 68
@@ -501,16 +516,16 @@ function main() {
     else if (event.keyCode == 65) {
       glMatrix.mat4.rotate(model, model, glMatrix.glMatrix.toRadian(1), [0, 1.0, 0.0]);
     } 
+    else if (event.keyCode == 87) { // W = 87
+      lightYPosition += distanceYMovement;
+      moveCubeY(distanceYMovement);
+    } 
+    else if (event.keyCode == 83) { // S = 83
+      lightYPosition -= distanceYMovement;
+      moveCubeY(-distanceYMovement);
+    } 
   }
   document.addEventListener('keydown', onKeyDown);
-
-  var uNormalModel = gl.getUniformLocation(shaderProgram, 'u_NormalModel');
-  var uAmbientColor = gl.getUniformLocation(shaderProgram, 'u_AmbientColor');
-  gl.uniform3fv(uAmbientColor, [0.5, 0.5, 0.5]);
-  var uLightColor = gl.getUniformLocation(shaderProgram, 'u_LightColor');
-  gl.uniform3fv(uLightColor, [1, 1, 1]);
-  var uLightPosition = gl.getUniformLocation(shaderProgram, 'u_LightPosition');
-  gl.uniform3fv(uLightPosition, [0, 0, -3]);
 
   // glMatrix.mat4.rotate(model, model, glMatrix.glMatrix.toRadian(15), [1.0, 1.0, 1.0]);
   
@@ -518,11 +533,14 @@ function main() {
     // glMatrix.mat4.rotate(model, model, angularspeed, [1.0, 1.0, 1.0]);
     gl.uniformMatrix4fv(u_Model, false, model);
     gl.uniformMatrix4fv(u_View, false, view);
+    gl.uniform3fv(uLightPosition, [0, lightYPosition, 0]);
     var normalModel = glMatrix.mat3.create();
     glMatrix.mat3.normalFromMat4(normalModel, model);
     gl.uniformMatrix3fv(uNormalModel, false, normalModel);
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     gl.drawArrays(primitive, offset, nVertex);
     requestAnimationFrame(render);
   }
