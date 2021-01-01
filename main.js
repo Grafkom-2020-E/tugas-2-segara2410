@@ -521,7 +521,7 @@ function main() {
       lightYPosition += distanceYMovement;
       moveCubeY(distanceYMovement);
     } 
-    else if (event.keyCode == 83 && lightYPosition < boundaryYMovement) { // S = 83
+    else if (event.keyCode == 83 && lightYPosition > -boundaryYMovement) { // S = 83
       lightYPosition -= distanceYMovement;
       moveCubeY(-distanceYMovement);
     } 
