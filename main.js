@@ -508,6 +508,7 @@ function main() {
 
   let lightYPosition = 0;
   const distanceYMovement = 0.01;
+  const boundaryYMovement = 0.95;
   function onKeyDown(event) {
     console.log(event.keyCode);
     if (event.keyCode == 68) {  // D = 68
@@ -516,11 +517,11 @@ function main() {
     else if (event.keyCode == 65) {
       glMatrix.mat4.rotate(model, model, glMatrix.glMatrix.toRadian(1), [0, 1.0, 0.0]);
     } 
-    else if (event.keyCode == 87) { // W = 87
+    else if (event.keyCode == 87 && lightYPosition < boundaryYMovement) { // W = 87
       lightYPosition += distanceYMovement;
       moveCubeY(distanceYMovement);
     } 
-    else if (event.keyCode == 83) { // S = 83
+    else if (event.keyCode == 83 && lightYPosition < boundaryYMovement) { // S = 83
       lightYPosition -= distanceYMovement;
       moveCubeY(-distanceYMovement);
     } 
