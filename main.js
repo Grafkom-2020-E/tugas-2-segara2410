@@ -2,7 +2,9 @@ function main() {
   var canvas = document.getElementById("myCanvas");
   var gl = canvas.getContext("webgl");
 
-  var vertices = [];
+  let cubeVertices = [];
+  let firstRVertices = [];
+  let secondRVertices = [];
 
   const rLetters = {
     objectPoints: [
@@ -315,109 +317,104 @@ function main() {
     ],
   }
 
-  function quad(a, b, c, d, object) {
+  function quad(a, b, c, d, object, objectVertices) {
     var indices = [a, b, c, c, d, a];
     for (var i=0; i<indices.length; i++) {
       var point = object.objectPoints[indices[i]];  // [x, y, z]
       for (var j=0; j<point.length; j++) {
-        vertices.push(point[j]);
+        objectVertices.push(point[j]);
       }
       var color = object.objectColors[a]; // [r, g, b]
       for (var j=0; j<color.length; j++) {
-        vertices.push(color[j]);
+        objectVertices.push(color[j]);
       }
       var normal = object.objectNormals[a];
       for (var j=0; j<normal.length; j++) {
-        vertices.push(normal[j]);
+        objectVertices.push(normal[j]);
       }
     }
   }
   
   //Cube
-  quad(1, 2, 3, 0, cube); // DEPAN, merah
-  quad(2, 6, 7, 3, cube); // KANAN, hijau
-  quad(3, 7, 4, 0, cube); // ATAS, biru
-  quad(4, 5, 1, 0, cube); // KIRI, putih
-  quad(5, 4, 7, 6, cube); // BELAKANG, oranye
-  quad(6, 2, 1, 5, cube); // BAWAH, kuning
+  quad(1, 2, 3, 0, cube, cubeVertices); // DEPAN, merah
+  quad(2, 6, 7, 3, cube, cubeVertices); // KANAN, hijau
+  quad(3, 7, 4, 0, cube, cubeVertices); // ATAS, biru
+  quad(4, 5, 1, 0, cube, cubeVertices); // KIRI, putih
+  quad(5, 4, 7, 6, cube, cubeVertices); // BELAKANG, oranye
+  quad(6, 2, 1, 5, cube, cubeVertices); // BAWAH, kuning
 
-  //R 1
+  // //R 1
   let quadOffset = 19;
-  quad(1, 2, 3, 0, rLetters); //// merah, belakang, a
-  quad(2, 4, 5, 6, rLetters); // merah, belakang, b
-  quad(4, 13, 13+quadOffset, 4+quadOffset, rLetters); // merah, kanan, a
-  quad(5, 6, 7, 8, rLetters); // merah, belakang, c
-  quad(6, 6+quadOffset, 1+quadOffset, 1, rLetters); // merah, atas, a
-  quad(7, 7+quadOffset, 6+quadOffset, 6, rLetters); // merah, ataskanan, a
-  quad(8, 9, 10, 7, rLetters); // merah, belakang, d
-  quad(9, 10, 11, 12, rLetters); // merah, belakang, e
-  quad(10, 10+quadOffset, 7+quadOffset, 7, rLetters); // merah, kanan, b
-  quad(11, 15, 15+quadOffset, 11+quadOffset, rLetters); // merah, bawah, b
-  quad(12, 12+quadOffset, 9+quadOffset, 9, rLetters); // merah, ataskiri
-  quad(13, 14, 11, 12, rLetters); // merah, belakang, f
-  quad(14, 3, 3+quadOffset, 14+quadOffset, rLetters); // merah, kanan, c
-  quad(15, 16, 16+quadOffset, 15+quadOffset, rLetters); // merah, ataskanan, b
-  quad(16, 17, 18, 15, rLetters); // merah, belakang, g
+  quad(1, 2, 3, 0, rLetters, firstRVertices); //// merah, belakang, a
+  quad(2, 4, 5, 6, rLetters, firstRVertices); // merah, belakang, b
+  quad(4, 13, 13+quadOffset, 4+quadOffset, rLetters, firstRVertices); // merah, kanan, a
+  quad(5, 6, 7, 8, rLetters, firstRVertices); // merah, belakang, c
+  quad(6, 6+quadOffset, 1+quadOffset, 1, rLetters, firstRVertices); // merah, atas, a
+  quad(7, 7+quadOffset, 6+quadOffset, 6, rLetters, firstRVertices); // merah, ataskanan, a
+  quad(8, 9, 10, 7, rLetters, firstRVertices); // merah, belakang, d
+  quad(9, 10, 11, 12, rLetters, firstRVertices); // merah, belakang, e
+  quad(10, 10+quadOffset, 7+quadOffset, 7, rLetters, firstRVertices); // merah, kanan, b
+  quad(11, 15, 15+quadOffset, 11+quadOffset, rLetters, firstRVertices); // merah, bawah, b
+  quad(12, 12+quadOffset, 9+quadOffset, 9, rLetters, firstRVertices); // merah, ataskiri
+  quad(13, 14, 11, 12, rLetters, firstRVertices); // merah, belakang, f
+  quad(14, 3, 3+quadOffset, 14+quadOffset, rLetters, firstRVertices); // merah, kanan, c
+  quad(15, 16, 16+quadOffset, 15+quadOffset, rLetters, firstRVertices); // merah, ataskanan, b
+  quad(16, 17, 18, 15, rLetters, firstRVertices); // merah, belakang, g
 
-  quad(0+quadOffset, 0, 1, 1+quadOffset, rLetters); // merah, kiri, a
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters); // merah, depan, a
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters); // merah, depan, b
-  quad(3+quadOffset, 3, 0, 0+quadOffset, rLetters); // merah, bawah, e
-  quad(4+quadOffset, 4, 5, 5+quadOffset, rLetters); // merah, bawah, a
-  quad(5+quadOffset, 5, 8, 8+quadOffset, rLetters); // merah, kiribawah, a
-  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters); // merah, depan, c
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters); // merah, depan, d
-  quad(8+quadOffset, 8, 9, 9+quadOffset, rLetters); // merah, kiri, b
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters); // merah, depan, e
-  quad(10+quadOffset, 10, 11, 11+quadOffset, rLetters); // merah, kananbawah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters); // merah, depan, f
-  quad(12+quadOffset, 12, 13, 13+quadOffset, rLetters); // merah, atas, b
-  quad(14+quadOffset, 14, 18, 18+quadOffset, rLetters); // merah, bawah, d
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters); // merah, depan, g
-  quad(16+quadOffset, 16, 17, 17+quadOffset, rLetters); // merah, bawah, c
-  quad(17+quadOffset, 17, 18, 18+quadOffset, rLetters); // merah, kiribawah, b
+  quad(0+quadOffset, 0, 1, 1+quadOffset, rLetters, firstRVertices); // merah, kiri, a
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters, firstRVertices); // merah, depan, a
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters, firstRVertices); // merah, depan, b
+  quad(3+quadOffset, 3, 0, 0+quadOffset, rLetters, firstRVertices); // merah, bawah, e
+  quad(4+quadOffset, 4, 5, 5+quadOffset, rLetters, firstRVertices); // merah, bawah, a
+  quad(5+quadOffset, 5, 8, 8+quadOffset, rLetters, firstRVertices); // merah, kiribawah, a
+  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters, firstRVertices); // merah, depan, c
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters, firstRVertices); // merah, depan, d
+  quad(8+quadOffset, 8, 9, 9+quadOffset, rLetters, firstRVertices); // merah, kiri, b
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters, firstRVertices); // merah, depan, e
+  quad(10+quadOffset, 10, 11, 11+quadOffset, rLetters, firstRVertices); // merah, kananbawah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters, firstRVertices); // merah, depan, f
+  quad(12+quadOffset, 12, 13, 13+quadOffset, rLetters, firstRVertices); // merah, atas, b
+  quad(14+quadOffset, 14, 18, 18+quadOffset, rLetters, firstRVertices); // merah, bawah, d
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters, firstRVertices); // merah, depan, g
+  quad(16+quadOffset, 16, 17, 17+quadOffset, rLetters, firstRVertices); // merah, bawah, c
+  quad(17+quadOffset, 17, 18, 18+quadOffset, rLetters, firstRVertices); // merah, kiribawah, b
 
-  //R2
+  // //R2
   let objectOffset = quadOffset + 19;
   quadOffset = objectOffset + 19;
-  quad(1+objectOffset, 2+objectOffset, 3+objectOffset, 0+objectOffset, rLetters); //// merah, belakang, a
-  quad(2+objectOffset, 4+objectOffset, 5+objectOffset, 6+objectOffset, rLetters); // merah, belakang, b
-  quad(4+objectOffset, 13+objectOffset, 13+quadOffset, 4+quadOffset, rLetters); // merah, kanan, a
-  quad(5+objectOffset, 6+objectOffset, 7+objectOffset, 8+objectOffset, rLetters); // merah, belakang, c
-  quad(6+objectOffset, 6+quadOffset, 1+quadOffset, 1+objectOffset, rLetters); // merah, atas, a
-  quad(7+objectOffset, 7+quadOffset, 6+quadOffset, 6+objectOffset, rLetters); // merah, ataskanan, a
-  quad(8+objectOffset, 9+objectOffset, 10+objectOffset, 7+objectOffset, rLetters); // merah, belakang, d
-  quad(9+objectOffset, 10+objectOffset, 11+objectOffset, 12+objectOffset, rLetters); // merah, belakang, e
-  quad(10+objectOffset, 10+quadOffset, 7+quadOffset, 7+objectOffset, rLetters); // merah, kanan, b
-  quad(11+objectOffset, 15+objectOffset, 15+quadOffset, 11+quadOffset, rLetters); // merah, bawah, b
-  quad(12+objectOffset, 12+quadOffset, 9+quadOffset, 9+objectOffset, rLetters); // merah, ataskiri
-  quad(13+objectOffset, 14+objectOffset, 11+objectOffset, 12+objectOffset, rLetters); // merah, belakang, f
-  quad(14+objectOffset, 3+objectOffset, 3+quadOffset, 14+quadOffset, rLetters); // merah, kanan, c
-  quad(15+objectOffset, 16+objectOffset, 16+quadOffset, 15+quadOffset, rLetters); // merah, ataskanan, b
-  quad(16+objectOffset, 17+objectOffset, 18+objectOffset, 15+objectOffset, rLetters); // merah, belakang, g
+  quad(1+objectOffset, 2+objectOffset, 3+objectOffset, 0+objectOffset, rLetters, secondRVertices); //// merah, belakang, a
+  quad(2+objectOffset, 4+objectOffset, 5+objectOffset, 6+objectOffset, rLetters, secondRVertices); // merah, belakang, b
+  quad(4+objectOffset, 13+objectOffset, 13+quadOffset, 4+quadOffset, rLetters, secondRVertices); // merah, kanan, a
+  quad(5+objectOffset, 6+objectOffset, 7+objectOffset, 8+objectOffset, rLetters, secondRVertices); // merah, belakang, c
+  quad(6+objectOffset, 6+quadOffset, 1+quadOffset, 1+objectOffset, rLetters, secondRVertices); // merah, atas, a
+  quad(7+objectOffset, 7+quadOffset, 6+quadOffset, 6+objectOffset, rLetters, secondRVertices); // merah, ataskanan, a
+  quad(8+objectOffset, 9+objectOffset, 10+objectOffset, 7+objectOffset, rLetters, secondRVertices); // merah, belakang, d
+  quad(9+objectOffset, 10+objectOffset, 11+objectOffset, 12+objectOffset, rLetters, secondRVertices); // merah, belakang, e
+  quad(10+objectOffset, 10+quadOffset, 7+quadOffset, 7+objectOffset, rLetters, secondRVertices); // merah, kanan, b
+  quad(11+objectOffset, 15+objectOffset, 15+quadOffset, 11+quadOffset, rLetters, secondRVertices); // merah, bawah, b
+  quad(12+objectOffset, 12+quadOffset, 9+quadOffset, 9+objectOffset, rLetters, secondRVertices); // merah, ataskiri
+  quad(13+objectOffset, 14+objectOffset, 11+objectOffset, 12+objectOffset, rLetters, secondRVertices); // merah, belakang, f
+  quad(14+objectOffset, 3+objectOffset, 3+quadOffset, 14+quadOffset, rLetters, secondRVertices); // merah, kanan, c
+  quad(15+objectOffset, 16+objectOffset, 16+quadOffset, 15+quadOffset, rLetters, secondRVertices); // merah, ataskanan, b
+  quad(16+objectOffset, 17+objectOffset, 18+objectOffset, 15+objectOffset, rLetters, secondRVertices); // merah, belakang, g
 
-  quad(0+quadOffset, 0+objectOffset, 1+objectOffset, 1+quadOffset, rLetters); // merah, kiri, a
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters); // merah, depan, a
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters); // merah, depan, b
-  quad(3+quadOffset, 3+objectOffset, 0+objectOffset, 0+quadOffset, rLetters); // merah, bawah, e
-  quad(4+quadOffset, 4+objectOffset, 5+objectOffset, 5+quadOffset, rLetters); // merah, bawah, a
-  quad(5+quadOffset, 5+objectOffset, 8+objectOffset, 8+quadOffset, rLetters); // merah, kiribawah, a
-  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters); // merah, depan, c
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters); // merah, depan, d
-  quad(8+quadOffset, 8+objectOffset, 9+objectOffset, 9+quadOffset, rLetters); // merah, kiri, b
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters); // merah, depan, e
-  quad(10+quadOffset, 10+objectOffset, 11+objectOffset, 11+quadOffset, rLetters); // merah, kananbawah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters); // merah, depan, f
-  quad(12+quadOffset, 12+objectOffset, 13+objectOffset, 13+quadOffset, rLetters); // merah, atas, b
-  quad(14+quadOffset, 14+objectOffset, 18+objectOffset, 18+quadOffset, rLetters); // merah, bawah, d
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters); // merah, depan, g
-  quad(16+quadOffset, 16+objectOffset, 17+objectOffset, 17+quadOffset, rLetters); // merah, bawah, c
-  quad(17+quadOffset, 17+objectOffset, 18+objectOffset, 18+quadOffset, rLetters); // merah, kiribawah, b
-
-  var vertexBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-  gl.bindBuffer(gl.ARRAY_BUFFER, null);
+  quad(0+quadOffset, 0+objectOffset, 1+objectOffset, 1+quadOffset, rLetters, secondRVertices); // merah, kiri, a
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters, secondRVertices); // merah, depan, a
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters, secondRVertices); // merah, depan, b
+  quad(3+quadOffset, 3+objectOffset, 0+objectOffset, 0+quadOffset, rLetters, secondRVertices); // merah, bawah, e
+  quad(4+quadOffset, 4+objectOffset, 5+objectOffset, 5+quadOffset, rLetters, secondRVertices); // merah, bawah, a
+  quad(5+quadOffset, 5+objectOffset, 8+objectOffset, 8+quadOffset, rLetters, secondRVertices); // merah, kiribawah, a
+  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters, secondRVertices); // merah, depan, c
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters, secondRVertices); // merah, depan, d
+  quad(8+quadOffset, 8+objectOffset, 9+objectOffset, 9+quadOffset, rLetters, secondRVertices); // merah, kiri, b
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters, secondRVertices); // merah, depan, e
+  quad(10+quadOffset, 10+objectOffset, 11+objectOffset, 11+quadOffset, rLetters, secondRVertices); // merah, kananbawah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters, secondRVertices); // merah, depan, f
+  quad(12+quadOffset, 12+objectOffset, 13+objectOffset, 13+quadOffset, rLetters, secondRVertices); // merah, atas, b
+  quad(14+quadOffset, 14+objectOffset, 18+objectOffset, 18+quadOffset, rLetters, secondRVertices); // merah, bawah, d
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters, secondRVertices); // merah, depan, g
+  quad(16+quadOffset, 16+objectOffset, 17+objectOffset, 17+quadOffset, rLetters, secondRVertices); // merah, bawah, c
+  quad(17+quadOffset, 17+objectOffset, 18+objectOffset, 18+quadOffset, rLetters, secondRVertices); // merah, kiribawah, b
 
   var vertexShaderSource = document.getElementById("vertexShaderSource").text;
   var fragmentShaderSource = document.getElementById("fragmentShaderSource").text;
@@ -446,44 +443,15 @@ function main() {
   // Mulai menggunakan konteks (cat)
   gl.useProgram(shaderProgram);
 
-  // Ajarkan attribute a_Position di GPU
-  //  tentang pengambilan data verteks dari ARRAY_BUFFER
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
-  var aPositionLoc = gl.getAttribLocation(shaderProgram, "a_Position");
-  var aColorLoc = gl.getAttribLocation(shaderProgram, "a_Color");
-  var aNormalLoc = gl.getAttribLocation(shaderProgram, "a_Normal");
-  gl.vertexAttribPointer(
-    aPositionLoc, 
-    3, 
-    gl.FLOAT, 
-    false, 
-    9 * Float32Array.BYTES_PER_ELEMENT, 
-    0);
-  gl.vertexAttribPointer(
-    aColorLoc, 
-    3, 
-    gl.FLOAT, 
-    false, 
-    9 * Float32Array.BYTES_PER_ELEMENT, 
-    3 * Float32Array.BYTES_PER_ELEMENT);
-  gl.vertexAttribPointer(
-    aNormalLoc, 
-    3, 
-    gl.FLOAT, 
-    false, 
-    9 * Float32Array.BYTES_PER_ELEMENT, 
-    6 * Float32Array.BYTES_PER_ELEMENT);
-  gl.enableVertexAttribArray(aPositionLoc);
-  gl.enableVertexAttribArray(aColorLoc);
-  gl.enableVertexAttribArray(aNormalLoc);
-  gl.bindBuffer(gl.ARRAY_BUFFER, null);
-
   gl.viewport(100, 0, canvas.height, canvas.height);
   gl.enable(gl.DEPTH_TEST);
 
+  var aPositionLoc = gl.getAttribLocation(shaderProgram, "a_Position");
+  var aColorLoc = gl.getAttribLocation(shaderProgram, "a_Color");
+  var aNormalLoc = gl.getAttribLocation(shaderProgram, "a_Normal");
+
   var primitive = gl.TRIANGLES;
   var offset = 0;
-  var nVertex = 420;
 
   var u_Model = gl.getUniformLocation(shaderProgram, 'u_Model');
   var u_View = gl.getUniformLocation(shaderProgram, 'u_View');
@@ -502,7 +470,7 @@ function main() {
 
   const moveCubeY = (distance) => {
     for (let i = 1; i <= 36; i++) {
-      vertices[1 + (9 * (i - 1))] += distance;
+      cubeVertices[1 + (9 * (i - 1))] += distance;
     };
   };
 
@@ -528,21 +496,62 @@ function main() {
   }
   document.addEventListener('keydown', onKeyDown);
 
-  // glMatrix.mat4.rotate(model, model, glMatrix.glMatrix.toRadian(15), [1.0, 1.0, 1.0]);
-  
-  function render() {
-    // glMatrix.mat4.rotate(model, model, angularspeed, [1.0, 1.0, 1.0]);
+  const drawVertices = (objectVertices, clear) => {
+    var vertexBuffer = gl.createBuffer();
+        
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(objectVertices), gl.STATIC_DRAW);
+    gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+    // Ajarkan attribute a_Position di GPU
+    //  tentang pengambilan data verteks dari ARRAY_BUFFER
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+
+    gl.vertexAttribPointer(
+      aPositionLoc, 
+      3, 
+      gl.FLOAT, 
+      false, 
+      9 * Float32Array.BYTES_PER_ELEMENT, 
+      0);
+    gl.vertexAttribPointer(
+      aColorLoc, 
+      3, 
+      gl.FLOAT, 
+      false, 
+      9 * Float32Array.BYTES_PER_ELEMENT, 
+      3 * Float32Array.BYTES_PER_ELEMENT);
+    gl.vertexAttribPointer(
+      aNormalLoc, 
+      3, 
+      gl.FLOAT, 
+      false, 
+      9 * Float32Array.BYTES_PER_ELEMENT, 
+      6 * Float32Array.BYTES_PER_ELEMENT);
+    gl.enableVertexAttribArray(aPositionLoc);
+    gl.enableVertexAttribArray(aColorLoc);
+    gl.enableVertexAttribArray(aNormalLoc);
+    gl.bindBuffer(gl.ARRAY_BUFFER, null);
+   
     gl.uniformMatrix4fv(u_Model, false, model);
     gl.uniformMatrix4fv(u_View, false, view);
     gl.uniform3fv(uLightPosition, [0, lightYPosition, 0]);
     var normalModel = glMatrix.mat3.create();
     glMatrix.mat3.normalFromMat4(normalModel, model);
     gl.uniformMatrix3fv(uNormalModel, false, normalModel);
+
+    if (clear) {
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    }
+
+    gl.drawArrays(primitive, offset, objectVertices.length/9);
+  }
+
+  function render() {
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-    gl.drawArrays(primitive, offset, nVertex);
+    drawVertices(cubeVertices, true);
+    drawVertices(firstRVertices, false);
+    drawVertices(secondRVertices, false);
     requestAnimationFrame(render);
   }
 
