@@ -467,6 +467,8 @@ function main() {
   var uLightColor = gl.getUniformLocation(shaderProgram, 'u_LightColor');
   gl.uniform3fv(uLightColor, [1, 1, 1]);
   var uLightPosition = gl.getUniformLocation(shaderProgram, 'u_LightPosition');
+  var uSpecularColor = gl.getUniformLocation(shaderProgram, 'u_Specularcolor');
+  var shininessVal = gl.getUniformLocation(shaderProgram, 'shininessVal');
 
   const moveCubeY = (distance) => {
     for (let i = 1; i <= 36; i++) {
@@ -496,7 +498,7 @@ function main() {
   }
   document.addEventListener('keydown', onKeyDown);
 
-  const drawVertices = (objectVertices, clear) => {
+  const drawVertices = (objectVertices, shininess, clear) => {
     var vertexBuffer = gl.createBuffer();
         
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
@@ -536,7 +538,9 @@ function main() {
     gl.uniformMatrix4fv(u_Model, false, model);
     gl.uniformMatrix4fv(u_View, false, view);
     gl.uniform3fv(uLightPosition, [0, lightYPosition, 0]);
+    gl.uniform3fv(uSpecularColor, [1.0, 1.0, 1.0]);
     var normalModel = glMatrix.mat3.create();
+    gl.uniform1f(shininessVal, shininess);
     glMatrix.mat3.normalFromMat4(normalModel, model);
     gl.uniformMatrix3fv(uNormalModel, false, normalModel);
 
@@ -549,9 +553,9 @@ function main() {
 
   function render() {
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    drawVertices(cubeVertices, true);
-    drawVertices(firstRVertices, false);
-    drawVertices(secondRVertices, false);
+    drawVertices(cubeVertices, 100, true);
+    drawVertices(firstRVertices, 1, false);
+    drawVertices(secondRVertices, 300, false);
     requestAnimationFrame(render);
   }
 
