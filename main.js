@@ -157,41 +157,41 @@ function main() {
       // + 38
       //R2
       [],
-      [0.98, 0.6, 0.24],    // hijau, belakang, a, 1
-      [0.98, 0.6, 0.24],    // hijau, belakang, b, 2
+      [0.65, 0.1, 0.05],    // merah, belakang, a, 1
+      [0.65, 0.1, 0.05],    // merah, belakang, b, 2
       [], // 3
       [0.05, 0.1, 0.4],    // biru, kanan, a, 4
-      [0.98, 0.6, 0.24],    // hijau, belakang, c, 5
+      [0.65, 0.1, 0.05],    // merah, belakang, c, 5
       [0.05, 0.1, 0.4],    // biru, atas, a, 6
       [0.05, 0.1, 0.4],    // biru, ataskanan, a, 7 
-      [0.98, 0.6, 0.24],    // hijau, belakang, d, 8
-      [0.98, 0.6, 0.24],    // hijau, belakang, e, 9
+      [0.65, 0.1, 0.05],    // merah, belakang, d, 8
+      [0.65, 0.1, 0.05],    // merah, belakang, e, 9
       [0.05, 0.1, 0.4],    // biru, kanan, b, 10
       [0.05, 0.1, 0.4],    // biru, bawah, b, 11
       [0.05, 0.1, 0.4],    // biru, ataskiri, 12
-      [0.98, 0.6, 0.24],    // hijau, belakang, f, 13
+      [0.65, 0.1, 0.05],    // merah, belakang, f, 13
       [0.05, 0.1, 0.4],    // biru, kanan, c, 14
       [0.05, 0.1, 0.4],    // biru, ataskanan, b, 15
-      [0.98, 0.6, 0.24],    // hijau, belakang, g, 16
+      [0.65, 0.1, 0.05],    // merah, belakang, g, 16
       [], // 17
       [], // 18
       // + 19
       [0.05, 0.1, 0.4],    // biru, kiri, a, 0
-      [0.98, 0.6, 0.24],    // hijau, depan, a, 1
-      [0.98, 0.6, 0.24],    // hijau, depan, b, 2
+      [0.65, 0.1, 0.05],    // merah, depan, a, 1
+      [0.65, 0.1, 0.05],    // merah, depan, b, 2
       [0.05, 0.1, 0.4],    // biru, bawah, e, 3
       [0.05, 0.1, 0.4],    // biru, bawah, a, 4
       [0.05, 0.1, 0.4],    // biru, kiribawah, a, 5
-      [0.98, 0.6, 0.24],    // hijau, depan, c, 6
-      [0.98, 0.6, 0.24],    // hijau, depan, d, 7
+      [0.65, 0.1, 0.05],    // merah, depan, c, 6
+      [0.65, 0.1, 0.05],    // merah, depan, d, 7
       [0.05, 0.1, 0.4],    // biru, kiri, b, 8
-      [0.98, 0.6, 0.24],    // hijau, depan, e, 9
+      [0.65, 0.1, 0.05],    // merah, depan, e, 9
       [0.05, 0.1, 0.4],    // biru, kananbawah, 10
-      [0.98, 0.6, 0.24],    // hijau, depan, f, 11
+      [0.65, 0.1, 0.05],    // merah, depan, f, 11
       [0.05, 0.1, 0.4],    // biru, atas, b, 12
       [], // 13
       [0.05, 0.1, 0.4],    // biru, bawah, d, 14
-      [0.98, 0.6, 0.24],    // hijau, depan, g, 15
+      [0.65, 0.1, 0.05],    // merah, depan, g, 15
       [0.05, 0.1, 0.4],    // biru, bawah, c, 16
       [0.05, 0.1, 0.4],    // biru, kiribawah, b, 17
       [], // 18
@@ -336,85 +336,85 @@ function main() {
   }
   
   //Cube
-  quad(1, 2, 3, 0, cube, cubeVertices); // DEPAN, merah
-  quad(2, 6, 7, 3, cube, cubeVertices); // KANAN, hijau
-  quad(3, 7, 4, 0, cube, cubeVertices); // ATAS, biru
-  quad(4, 5, 1, 0, cube, cubeVertices); // KIRI, putih
-  quad(5, 4, 7, 6, cube, cubeVertices); // BELAKANG, oranye
-  quad(6, 2, 1, 5, cube, cubeVertices); // BAWAH, kuning
+  quad(1, 2, 3, 0, cube, cubeVertices); // DEPAN
+  quad(2, 6, 7, 3, cube, cubeVertices); // KANAN
+  quad(3, 7, 4, 0, cube, cubeVertices); // ATAS
+  quad(4, 5, 1, 0, cube, cubeVertices); // KIRI
+  quad(5, 4, 7, 6, cube, cubeVertices); // BELAKANG
+  quad(6, 2, 1, 5, cube, cubeVertices); // BAWAH
 
   // //R 1
   let quadOffset = 19;
-  quad(1, 2, 3, 0, rLetters, firstRVertices); //// merah, belakang, a
-  quad(2, 4, 5, 6, rLetters, firstRVertices); // merah, belakang, b
-  quad(4, 13, 13+quadOffset, 4+quadOffset, rLetters, firstRVertices); // merah, kanan, a
-  quad(5, 6, 7, 8, rLetters, firstRVertices); // merah, belakang, c
-  quad(6, 6+quadOffset, 1+quadOffset, 1, rLetters, firstRVertices); // merah, atas, a
-  quad(7, 7+quadOffset, 6+quadOffset, 6, rLetters, firstRVertices); // merah, ataskanan, a
-  quad(8, 9, 10, 7, rLetters, firstRVertices); // merah, belakang, d
-  quad(9, 10, 11, 12, rLetters, firstRVertices); // merah, belakang, e
-  quad(10, 10+quadOffset, 7+quadOffset, 7, rLetters, firstRVertices); // merah, kanan, b
-  quad(11, 15, 15+quadOffset, 11+quadOffset, rLetters, firstRVertices); // merah, bawah, b
-  quad(12, 12+quadOffset, 9+quadOffset, 9, rLetters, firstRVertices); // merah, ataskiri
-  quad(13, 14, 11, 12, rLetters, firstRVertices); // merah, belakang, f
-  quad(14, 3, 3+quadOffset, 14+quadOffset, rLetters, firstRVertices); // merah, kanan, c
-  quad(15, 16, 16+quadOffset, 15+quadOffset, rLetters, firstRVertices); // merah, ataskanan, b
-  quad(16, 17, 18, 15, rLetters, firstRVertices); // merah, belakang, g
+  quad(1, 2, 3, 0, rLetters, firstRVertices); // belakang, a
+  quad(2, 4, 5, 6, rLetters, firstRVertices); // belakang, b
+  quad(4, 13, 13+quadOffset, 4+quadOffset, rLetters, firstRVertices); // kanan, a
+  quad(5, 6, 7, 8, rLetters, firstRVertices); // belakang, c
+  quad(6, 6+quadOffset, 1+quadOffset, 1, rLetters, firstRVertices); // atas, a
+  quad(7, 7+quadOffset, 6+quadOffset, 6, rLetters, firstRVertices); // ataskanan, a
+  quad(8, 9, 10, 7, rLetters, firstRVertices); // belakang, d
+  quad(9, 10, 11, 12, rLetters, firstRVertices); // belakang, e
+  quad(10, 10+quadOffset, 7+quadOffset, 7, rLetters, firstRVertices); // kanan, b
+  quad(11, 15, 15+quadOffset, 11+quadOffset, rLetters, firstRVertices); // bawah, b
+  quad(12, 12+quadOffset, 9+quadOffset, 9, rLetters, firstRVertices); // ataskiri
+  quad(13, 14, 11, 12, rLetters, firstRVertices); // belakang, f
+  quad(14, 3, 3+quadOffset, 14+quadOffset, rLetters, firstRVertices); // kanan, c
+  quad(15, 16, 16+quadOffset, 15+quadOffset, rLetters, firstRVertices); // ataskanan, b
+  quad(16, 17, 18, 15, rLetters, firstRVertices); // belakang, g
 
-  quad(0+quadOffset, 0, 1, 1+quadOffset, rLetters, firstRVertices); // merah, kiri, a
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters, firstRVertices); // merah, depan, a
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters, firstRVertices); // merah, depan, b
-  quad(3+quadOffset, 3, 0, 0+quadOffset, rLetters, firstRVertices); // merah, bawah, e
-  quad(4+quadOffset, 4, 5, 5+quadOffset, rLetters, firstRVertices); // merah, bawah, a
-  quad(5+quadOffset, 5, 8, 8+quadOffset, rLetters, firstRVertices); // merah, kiribawah, a
-  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters, firstRVertices); // merah, depan, c
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters, firstRVertices); // merah, depan, d
-  quad(8+quadOffset, 8, 9, 9+quadOffset, rLetters, firstRVertices); // merah, kiri, b
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters, firstRVertices); // merah, depan, e
-  quad(10+quadOffset, 10, 11, 11+quadOffset, rLetters, firstRVertices); // merah, kananbawah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters, firstRVertices); // merah, depan, f
-  quad(12+quadOffset, 12, 13, 13+quadOffset, rLetters, firstRVertices); // merah, atas, b
-  quad(14+quadOffset, 14, 18, 18+quadOffset, rLetters, firstRVertices); // merah, bawah, d
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters, firstRVertices); // merah, depan, g
-  quad(16+quadOffset, 16, 17, 17+quadOffset, rLetters, firstRVertices); // merah, bawah, c
-  quad(17+quadOffset, 17, 18, 18+quadOffset, rLetters, firstRVertices); // merah, kiribawah, b
+  quad(0+quadOffset, 0, 1, 1+quadOffset, rLetters, firstRVertices); // kiri, a
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters, firstRVertices); // depan, a
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters, firstRVertices); // depan, b
+  quad(3+quadOffset, 3, 0, 0+quadOffset, rLetters, firstRVertices); // bawah, e
+  quad(4+quadOffset, 4, 5, 5+quadOffset, rLetters, firstRVertices); // bawah, a
+  quad(5+quadOffset, 5, 8, 8+quadOffset, rLetters, firstRVertices); // kiribawah, a
+  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters, firstRVertices); // depan, c
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters, firstRVertices); // depan, d
+  quad(8+quadOffset, 8, 9, 9+quadOffset, rLetters, firstRVertices); // kiri, b
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters, firstRVertices); // depan, e
+  quad(10+quadOffset, 10, 11, 11+quadOffset, rLetters, firstRVertices); // kananbawah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters, firstRVertices); // depan, f
+  quad(12+quadOffset, 12, 13, 13+quadOffset, rLetters, firstRVertices); // atas, b
+  quad(14+quadOffset, 14, 18, 18+quadOffset, rLetters, firstRVertices); // bawah, d
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters, firstRVertices); // depan, g
+  quad(16+quadOffset, 16, 17, 17+quadOffset, rLetters, firstRVertices); // bawah, c
+  quad(17+quadOffset, 17, 18, 18+quadOffset, rLetters, firstRVertices); // kiribawah, b
 
   // //R2
   let objectOffset = quadOffset + 19;
   quadOffset = objectOffset + 19;
-  quad(1+objectOffset, 2+objectOffset, 3+objectOffset, 0+objectOffset, rLetters, secondRVertices); //// merah, belakang, a
-  quad(2+objectOffset, 4+objectOffset, 5+objectOffset, 6+objectOffset, rLetters, secondRVertices); // merah, belakang, b
-  quad(4+objectOffset, 13+objectOffset, 13+quadOffset, 4+quadOffset, rLetters, secondRVertices); // merah, kanan, a
-  quad(5+objectOffset, 6+objectOffset, 7+objectOffset, 8+objectOffset, rLetters, secondRVertices); // merah, belakang, c
-  quad(6+objectOffset, 6+quadOffset, 1+quadOffset, 1+objectOffset, rLetters, secondRVertices); // merah, atas, a
-  quad(7+objectOffset, 7+quadOffset, 6+quadOffset, 6+objectOffset, rLetters, secondRVertices); // merah, ataskanan, a
-  quad(8+objectOffset, 9+objectOffset, 10+objectOffset, 7+objectOffset, rLetters, secondRVertices); // merah, belakang, d
-  quad(9+objectOffset, 10+objectOffset, 11+objectOffset, 12+objectOffset, rLetters, secondRVertices); // merah, belakang, e
-  quad(10+objectOffset, 10+quadOffset, 7+quadOffset, 7+objectOffset, rLetters, secondRVertices); // merah, kanan, b
-  quad(11+objectOffset, 15+objectOffset, 15+quadOffset, 11+quadOffset, rLetters, secondRVertices); // merah, bawah, b
-  quad(12+objectOffset, 12+quadOffset, 9+quadOffset, 9+objectOffset, rLetters, secondRVertices); // merah, ataskiri
-  quad(13+objectOffset, 14+objectOffset, 11+objectOffset, 12+objectOffset, rLetters, secondRVertices); // merah, belakang, f
-  quad(14+objectOffset, 3+objectOffset, 3+quadOffset, 14+quadOffset, rLetters, secondRVertices); // merah, kanan, c
-  quad(15+objectOffset, 16+objectOffset, 16+quadOffset, 15+quadOffset, rLetters, secondRVertices); // merah, ataskanan, b
-  quad(16+objectOffset, 17+objectOffset, 18+objectOffset, 15+objectOffset, rLetters, secondRVertices); // merah, belakang, g
+  quad(1+objectOffset, 2+objectOffset, 3+objectOffset, 0+objectOffset, rLetters, secondRVertices); // belakang, a
+  quad(2+objectOffset, 4+objectOffset, 5+objectOffset, 6+objectOffset, rLetters, secondRVertices); // belakang, b
+  quad(4+objectOffset, 13+objectOffset, 13+quadOffset, 4+quadOffset, rLetters, secondRVertices); // kanan, a
+  quad(5+objectOffset, 6+objectOffset, 7+objectOffset, 8+objectOffset, rLetters, secondRVertices); // belakang, c
+  quad(6+objectOffset, 6+quadOffset, 1+quadOffset, 1+objectOffset, rLetters, secondRVertices); // atas, a
+  quad(7+objectOffset, 7+quadOffset, 6+quadOffset, 6+objectOffset, rLetters, secondRVertices); // ataskanan, a
+  quad(8+objectOffset, 9+objectOffset, 10+objectOffset, 7+objectOffset, rLetters, secondRVertices); // belakang, d
+  quad(9+objectOffset, 10+objectOffset, 11+objectOffset, 12+objectOffset, rLetters, secondRVertices); // belakang, e
+  quad(10+objectOffset, 10+quadOffset, 7+quadOffset, 7+objectOffset, rLetters, secondRVertices); // kanan, b
+  quad(11+objectOffset, 15+objectOffset, 15+quadOffset, 11+quadOffset, rLetters, secondRVertices); // bawah, b
+  quad(12+objectOffset, 12+quadOffset, 9+quadOffset, 9+objectOffset, rLetters, secondRVertices); // ataskiri
+  quad(13+objectOffset, 14+objectOffset, 11+objectOffset, 12+objectOffset, rLetters, secondRVertices); // belakang, f
+  quad(14+objectOffset, 3+objectOffset, 3+quadOffset, 14+quadOffset, rLetters, secondRVertices); // kanan, c
+  quad(15+objectOffset, 16+objectOffset, 16+quadOffset, 15+quadOffset, rLetters, secondRVertices); // ataskanan, b
+  quad(16+objectOffset, 17+objectOffset, 18+objectOffset, 15+objectOffset, rLetters, secondRVertices); // belakang, g
 
-  quad(0+quadOffset, 0+objectOffset, 1+objectOffset, 1+quadOffset, rLetters, secondRVertices); // merah, kiri, a
-  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters, secondRVertices); // merah, depan, a
-  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters, secondRVertices); // merah, depan, b
-  quad(3+quadOffset, 3+objectOffset, 0+objectOffset, 0+quadOffset, rLetters, secondRVertices); // merah, bawah, e
-  quad(4+quadOffset, 4+objectOffset, 5+objectOffset, 5+quadOffset, rLetters, secondRVertices); // merah, bawah, a
-  quad(5+quadOffset, 5+objectOffset, 8+objectOffset, 8+quadOffset, rLetters, secondRVertices); // merah, kiribawah, a
-  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters, secondRVertices); // merah, depan, c
-  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters, secondRVertices); // merah, depan, d
-  quad(8+quadOffset, 8+objectOffset, 9+objectOffset, 9+quadOffset, rLetters, secondRVertices); // merah, kiri, b
-  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters, secondRVertices); // merah, depan, e
-  quad(10+quadOffset, 10+objectOffset, 11+objectOffset, 11+quadOffset, rLetters, secondRVertices); // merah, kananbawah
-  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters, secondRVertices); // merah, depan, f
-  quad(12+quadOffset, 12+objectOffset, 13+objectOffset, 13+quadOffset, rLetters, secondRVertices); // merah, atas, b
-  quad(14+quadOffset, 14+objectOffset, 18+objectOffset, 18+quadOffset, rLetters, secondRVertices); // merah, bawah, d
-  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters, secondRVertices); // merah, depan, g
-  quad(16+quadOffset, 16+objectOffset, 17+objectOffset, 17+quadOffset, rLetters, secondRVertices); // merah, bawah, c
-  quad(17+quadOffset, 17+objectOffset, 18+objectOffset, 18+quadOffset, rLetters, secondRVertices); // merah, kiribawah, b
+  quad(0+quadOffset, 0+objectOffset, 1+objectOffset, 1+quadOffset, rLetters, secondRVertices); // kiri, a
+  quad(1+quadOffset, 2+quadOffset, 3+quadOffset, 0+quadOffset, rLetters, secondRVertices); // depan, a
+  quad(2+quadOffset, 4+quadOffset, 5+quadOffset, 6+quadOffset, rLetters, secondRVertices); // depan, b
+  quad(3+quadOffset, 3+objectOffset, 0+objectOffset, 0+quadOffset, rLetters, secondRVertices); // bawah, e
+  quad(4+quadOffset, 4+objectOffset, 5+objectOffset, 5+quadOffset, rLetters, secondRVertices); // bawah, a
+  quad(5+quadOffset, 5+objectOffset, 8+objectOffset, 8+quadOffset, rLetters, secondRVertices); // kiribawah, a
+  quad(6+quadOffset, 7+quadOffset, 8+quadOffset, 5+quadOffset, rLetters, secondRVertices); // depan, c
+  quad(7+quadOffset, 8+quadOffset, 9+quadOffset, 10+quadOffset, rLetters, secondRVertices); // depan, d
+  quad(8+quadOffset, 8+objectOffset, 9+objectOffset, 9+quadOffset, rLetters, secondRVertices); // kiri, b
+  quad(9+quadOffset, 10+quadOffset, 11+quadOffset, 12+quadOffset, rLetters, secondRVertices); // depan, e
+  quad(10+quadOffset, 10+objectOffset, 11+objectOffset, 11+quadOffset, rLetters, secondRVertices); // kananbawah
+  quad(11+quadOffset, 12+quadOffset, 13+quadOffset, 14+quadOffset, rLetters, secondRVertices); // depan, f
+  quad(12+quadOffset, 12+objectOffset, 13+objectOffset, 13+quadOffset, rLetters, secondRVertices); // atas, b
+  quad(14+quadOffset, 14+objectOffset, 18+objectOffset, 18+quadOffset, rLetters, secondRVertices); // bawah, d
+  quad(15+quadOffset, 16+quadOffset, 17+quadOffset, 18+quadOffset, rLetters, secondRVertices); // depan, g
+  quad(16+quadOffset, 16+objectOffset, 17+objectOffset, 17+quadOffset, rLetters, secondRVertices); // bawah, c
+  quad(17+quadOffset, 17+objectOffset, 18+objectOffset, 18+quadOffset, rLetters, secondRVertices); // kiribawah, b
 
   var vertexShaderSource = document.getElementById("vertexShaderSource").text;
   var fragmentShaderSource = document.getElementById("fragmentShaderSource").text;
