@@ -116,168 +116,168 @@ function main() {
     objectColors: [
       //R1
       [],
-      [1.0, 0.0, 0.0],    // merah, belakang, a, 1
-      [1.0, 0.0, 0.0],    // merah, belakang, b, 2
+      [0.47, 0.59, 1.0],    // birupastel, belakang, a, 1
+      [0.47, 0.59, 1.0],    // birupastel, belakang, b, 2
       [], // 3
-      [1.0, 0.0, 0.0],    // merah, kanan, a, 4
-      [1.0, 0.0, 0.0],    // merah, belakang, c, 5
-      [1.0, 0.0, 0.0],    // merah, atas, a, 6
-      [1.0, 0.0, 0.0],    // merah, ataskanan, a, 7 
-      [1.0, 0.0, 0.0],    // merah, belakang, d, 8
-      [1.0, 0.0, 0.0],    // merah, belakang, e, 9
-      [1.0, 0.0, 0.0],    // merah, kanan, b, 10
-      [1.0, 0.0, 0.0],    // merah, bawah, b, 11
-      [1.0, 0.0, 0.0],    // merah, ataskiri, 12
-      [1.0, 0.0, 0.0],    // merah, belakang, f, 13
-      [1.0, 0.0, 0.0],    // merah, kanan, c, 14
-      [1.0, 0.0, 0.0],    // merah, ataskanan, b, 15
-      [1.0, 0.0, 0.0],    // merah, belakang, g, 16
+      [0.9, 0.94, 0.3],    // kuning, kanan, a, 4
+      [0.47, 0.59, 1.0],    // birupastel, belakang, c, 5
+      [0.9, 0.94, 0.3],    // kuning, atas, a, 6
+      [0.9, 0.94, 0.3],    // kuning, ataskanan, a, 7 
+      [0.47, 0.59, 1.0],    // birupastel, belakang, d, 8
+      [0.47, 0.59, 1.0],    // birupastel, belakang, e, 9
+      [0.9, 0.94, 0.3],    // kuning, kanan, b, 10
+      [0.47, 0.59, 1.0],    // birupastel, bawah, b, 11
+      [0.9, 0.94, 0.3],    // kuning, ataskiri, 12
+      [0.47, 0.59, 1.0],    // birupastel, belakang, f, 13
+      [0.9, 0.94, 0.3],    // kuning, kanan, c, 14
+      [0.9, 0.94, 0.3],    // kuning, ataskanan, b, 15
+      [0.47, 0.59, 1.0],    // birupastel, belakang, g, 16
       [], // 17
       [], // 18
       // + 19
-      [1.0, 0.0, 0.0],    // merah, kiri, a, 0
-      [1.0, 0.0, 0.0],    // merah, depan, a, 1
-      [1.0, 0.0, 0.0],    // merah, depan, b, 2
-      [1.0, 0.0, 0.0],    // merah, bawah, e, 3
-      [1.0, 0.0, 0.0],    // merah, bawah, a, 4
-      [1.0, 0.0, 0.0],    // merah, kiribawah, a, 5
-      [1.0, 0.0, 0.0],    // merah, depan, c, 6
-      [1.0, 0.0, 0.0],    // merah, depan, d, 7
-      [1.0, 0.0, 0.0],    // merah, kiri, b, 8
-      [1.0, 0.0, 0.0],    // merah, depan, e, 9
-      [1.0, 0.0, 0.0],    // merah, kananbawah, 10
-      [1.0, 0.0, 0.0],    // merah, depan, f, 11
-      [1.0, 0.0, 0.0],    // merah, atas, b, 12
+      [0.9, 0.94, 0.3],    // kuning, kiri, a, 0
+      [0.47, 0.59, 1.0],    // birupastel, depan, a, 1
+      [0.47, 0.59, 1.0],    // birupastel, depan, b, 2
+      [0.47, 0.59, 1.0],    // birupastel, bawah, e, 3
+      [0.47, 0.59, 1.0],    // birupastel, bawah, a, 4
+      [0.9, 0.94, 0.3],    // kuning, kiribawah, a, 5
+      [0.47, 0.59, 1.0],    // birupastel, depan, c, 6
+      [0.47, 0.59, 1.0],    // birupastel, depan, d, 7
+      [0.9, 0.94, 0.3],    // kuning, kiri, b, 8
+      [0.47, 0.59, 1.0],    // birupastel, depan, e, 9
+      [0.9, 0.94, 0.3],    // kuning, kananbawah, 10
+      [0.47, 0.59, 1.0],    // birupastel, depan, f, 11
+      [0.9, 0.94, 0.3],    // kuning, atas, b, 12
       [], // 13
-      [1.0, 0.0, 0.0],    // merah, bawah, d, 14
-      [1.0, 0.0, 0.0],    // merah, depan, g, 15
-      [1.0, 0.0, 0.0],    // merah, bawah, c, 16
-      [1.0, 0.0, 0.0],    // merah, kiribawah, b, 17
+      [0.47, 0.59, 1.0],    // birupastel, bawah, d, 14
+      [0.47, 0.59, 1.0],    // birupastel, depan, g, 15
+      [0.47, 0.59, 1.0],    // birupastel, bawah, c, 16
+      [0.9, 0.94, 0.3],    // kuning, kiribawah, b, 17
       [], // 18
       // + 38
       //R2
       [],
-      [1.0, 0.0, 0.0],    // merah, belakang, a, 1
-      [1.0, 0.0, 0.0],    // merah, belakang, b, 2
+      [0.98, 0.6, 0.24],    // hijau, belakang, a, 1
+      [0.98, 0.6, 0.24],    // hijau, belakang, b, 2
       [], // 3
-      [1.0, 0.0, 0.0],    // merah, kanan, a, 4
-      [1.0, 0.0, 0.0],    // merah, belakang, c, 5
-      [1.0, 0.0, 0.0],    // merah, atas, a, 6
-      [1.0, 0.0, 0.0],    // merah, ataskanan, a, 7 
-      [1.0, 0.0, 0.0],    // merah, belakang, d, 8
-      [1.0, 0.0, 0.0],    // merah, belakang, e, 9
-      [1.0, 0.0, 0.0],    // merah, kanan, b, 10
-      [1.0, 0.0, 0.0],    // merah, bawah, b, 11
-      [1.0, 0.0, 0.0],    // merah, ataskiri, 12
-      [1.0, 0.0, 0.0],    // merah, belakang, f, 13
-      [1.0, 0.0, 0.0],    // merah, kanan, c, 14
-      [1.0, 0.0, 0.0],    // merah, ataskanan, b, 15
-      [1.0, 0.0, 0.0],    // merah, belakang, g, 16
+      [0.05, 0.1, 0.4],    // biru, kanan, a, 4
+      [0.98, 0.6, 0.24],    // hijau, belakang, c, 5
+      [0.05, 0.1, 0.4],    // biru, atas, a, 6
+      [0.05, 0.1, 0.4],    // biru, ataskanan, a, 7 
+      [0.98, 0.6, 0.24],    // hijau, belakang, d, 8
+      [0.98, 0.6, 0.24],    // hijau, belakang, e, 9
+      [0.05, 0.1, 0.4],    // biru, kanan, b, 10
+      [0.05, 0.1, 0.4],    // biru, bawah, b, 11
+      [0.05, 0.1, 0.4],    // biru, ataskiri, 12
+      [0.98, 0.6, 0.24],    // hijau, belakang, f, 13
+      [0.05, 0.1, 0.4],    // biru, kanan, c, 14
+      [0.05, 0.1, 0.4],    // biru, ataskanan, b, 15
+      [0.98, 0.6, 0.24],    // hijau, belakang, g, 16
       [], // 17
       [], // 18
       // + 19
-      [1.0, 0.0, 0.0],    // merah, kiri, a, 0
-      [1.0, 0.0, 0.0],    // merah, depan, a, 1
-      [1.0, 0.0, 0.0],    // merah, depan, b, 2
-      [1.0, 0.0, 0.0],    // merah, bawah, e, 3
-      [1.0, 0.0, 0.0],    // merah, bawah, a, 4
-      [1.0, 0.0, 0.0],    // merah, kiribawah, a, 5
-      [1.0, 0.0, 0.0],    // merah, depan, c, 6
-      [1.0, 0.0, 0.0],    // merah, depan, d, 7
-      [1.0, 0.0, 0.0],    // merah, kiri, b, 8
-      [1.0, 0.0, 0.0],    // merah, depan, e, 9
-      [1.0, 0.0, 0.0],    // merah, kananbawah, 10
-      [1.0, 0.0, 0.0],    // merah, depan, f, 11
-      [1.0, 0.0, 0.0],    // merah, atas, b, 12
+      [0.05, 0.1, 0.4],    // biru, kiri, a, 0
+      [0.98, 0.6, 0.24],    // hijau, depan, a, 1
+      [0.98, 0.6, 0.24],    // hijau, depan, b, 2
+      [0.05, 0.1, 0.4],    // biru, bawah, e, 3
+      [0.05, 0.1, 0.4],    // biru, bawah, a, 4
+      [0.05, 0.1, 0.4],    // biru, kiribawah, a, 5
+      [0.98, 0.6, 0.24],    // hijau, depan, c, 6
+      [0.98, 0.6, 0.24],    // hijau, depan, d, 7
+      [0.05, 0.1, 0.4],    // biru, kiri, b, 8
+      [0.98, 0.6, 0.24],    // hijau, depan, e, 9
+      [0.05, 0.1, 0.4],    // biru, kananbawah, 10
+      [0.98, 0.6, 0.24],    // hijau, depan, f, 11
+      [0.05, 0.1, 0.4],    // biru, atas, b, 12
       [], // 13
-      [1.0, 0.0, 0.0],    // merah, bawah, d, 14
-      [1.0, 0.0, 0.0],    // merah, depan, g, 15
-      [1.0, 0.0, 0.0],    // merah, bawah, c, 16
-      [1.0, 0.0, 0.0],    // merah, kiribawah, b, 17
+      [0.05, 0.1, 0.4],    // biru, bawah, d, 14
+      [0.98, 0.6, 0.24],    // hijau, depan, g, 15
+      [0.05, 0.1, 0.4],    // biru, bawah, c, 16
+      [0.05, 0.1, 0.4],    // biru, kiribawah, b, 17
       [], // 18
     ],
 
     objectNormals: [
       //R1
       [],
-      [0.0, 0.0, 1.0],    // merah, belakang, a, 1
-      [0.0, 0.0, 1.0],    // merah, belakang, b, 2
+      [0.0, 0.0, 1.0],    // belakang, a, 1
+      [0.0, 0.0, 1.0],    // belakang, b, 2
       [], // 3
-      [1.0, 0.0, 0.0],    // merah, kanan, a, 4
-      [0.0, 0.0, 1.0],    // merah, belakang, c, 5
-      [0.0, 1.0, 0.0],    // merah, atas, a, 6
-      [0.5, 0.5, 0.0],    // merah, ataskanan, a, 7 
-      [0.0, 0.0, 1.0],    // merah, belakang, d, 8
-      [0.0, 0.0, 1.0],    // merah, belakang, e, 9
-      [1.0, 0.0, 0.0],    // merah, kanan, b, 10
-      [0.0, -1.0, 0.0],    // merah, bawah, b, 11
-      [-0.5, 0.5, 0.0],    // merah, ataskiri, 12
-      [0.0, 0.0, 1.0],    // merah, belakang, f, 13
-      [1.0, 0.0, 0.0],    // merah, kanan, c, 14
-      [0.5, 0.5, 0.0],    // merah, ataskanan, b, 15
-      [0.0, 0.0, 1.0],    // merah, belakang, g, 16
+      [1.0, 0.0, 0.0],    // kanan, a, 4
+      [0.0, 0.0, 1.0],    // belakang, c, 5
+      [0.0, 1.0, 0.0],    // atas, a, 6
+      [0.5, 0.5, 0.0],    // ataskanan, a, 7 
+      [0.0, 0.0, 1.0],    // belakang, d, 8
+      [0.0, 0.0, 1.0],    // belakang, e, 9
+      [1.0, 0.0, 0.0],    // kanan, b, 10
+      [0.0, -1.0, 0.0],    // bawah, b, 11
+      [-0.5, 0.5, 0.0],    // ataskiri, 12
+      [0.0, 0.0, 1.0],    // belakang, f, 13
+      [1.0, 0.0, 0.0],    // kanan, c, 14
+      [0.5, 0.5, 0.0],    // ataskanan, b, 15
+      [0.0, 0.0, 1.0],    // belakang, g, 16
       [], // 17
       [], // 18
       // + 19
-      [-1.0, 0.0, 0.0],    // merah, kiri, a, 0
-      [0.0, 0.0, -1.0],    // merah, depan, a, 1
-      [0.0, 0.0, -1.0],    // merah, depan, b, 2
-      [0.0, -1.0, 0.0],    // merah, bawah, e, 3
-      [0.0, -1.0, 0.0],    // merah, bawah, a, 4
-      [-0.5, -0.5, 0.0],    // merah, kiribawah, a, 5
-      [0.0, 0.0, -1.0],    // merah, depan, c, 6
-      [0.0, 0.0, -1.0],    // merah, depan, d, 7
-      [-1.0, 0.0, 0.0],    // merah, kiri, b, 8
-      [0.0, 0.0, -1.0],    // merah, depan, e, 9
-      [1.0, 0.0, 0.0],    // merah, kananbawah, 10
-      [0.0, 0.0, -1.0],    // merah, depan, f, 11
-      [0.0, 1.0, 0.0],    // merah, atas, b, 12
+      [-1.0, 0.0, 0.0],    // kiri, a, 0
+      [0.0, 0.0, -1.0],    // depan, a, 1
+      [0.0, 0.0, -1.0],    // depan, b, 2
+      [0.0, -1.0, 0.0],    // bawah, e, 3
+      [0.0, -1.0, 0.0],    // bawah, a, 4
+      [-0.5, -0.5, 0.0],    // kiribawah, a, 5
+      [0.0, 0.0, -1.0],    // depan, c, 6
+      [0.0, 0.0, -1.0],    // depan, d, 7
+      [-1.0, 0.0, 0.0],    // kiri, b, 8
+      [0.0, 0.0, -1.0],    // depan, e, 9
+      [1.0, 0.0, 0.0],    // kananbawah, 10
+      [0.0, 0.0, -1.0],    // depan, f, 11
+      [0.0, 1.0, 0.0],    // atas, b, 12
       [], // 13
-      [0.0, -1.0, 0.0],    // merah, bawah, d, 14
-      [0.0, 0.0, -1.0],    // merah, depan, g, 15
-      [0.0, -1.0, 0.0],    // merah, bawah, c, 16
-      [-0.5, -0.5, 0.0],    // merah, kiribawah, b, 17
+      [0.0, -1.0, 0.0],    // bawah, d, 14
+      [0.0, 0.0, -1.0],    // depan, g, 15
+      [0.0, -1.0, 0.0],    // bawah, c, 16
+      [-0.5, -0.5, 0.0],    // kiribawah, b, 17
       [], // 18
       // + 38
-      //R1
+      //R2
       [],
-      [0.0, 0.0, 1.0],    // merah, belakang, a, 1
-      [0.0, 0.0, 1.0],    // merah, belakang, b, 2
+      [0.0, 0.0, 1.0],    // belakang, a, 1
+      [0.0, 0.0, 1.0],    // belakang, b, 2
       [], // 3
-      [1.0, 0.0, 0.0],    // merah, kanan, a, 4
-      [0.0, 0.0, 1.0],    // merah, belakang, c, 5
-      [0.0, 1.0, 0.0],    // merah, atas, a, 6
-      [0.5, 0.5, 0.0],    // merah, ataskanan, a, 7 
-      [0.0, 0.0, 1.0],    // merah, belakang, d, 8
-      [0.0, 0.0, 1.0],    // merah, belakang, e, 9
-      [1.0, 0.0, 0.0],    // merah, kanan, b, 10
-      [0.0, -1.0, 0.0],    // merah, bawah, b, 11
-      [-0.5, 0.5, 0.0],    // merah, ataskiri, 12
-      [0.0, 0.0, 1.0],    // merah, belakang, f, 13
-      [1.0, 0.0, 0.0],    // merah, kanan, c, 14
-      [0.5, 0.5, 0.0],    // merah, ataskanan, b, 15
-      [0.0, 0.0, 1.0],    // merah, belakang, g, 16
+      [1.0, 0.0, 0.0],    // kanan, a, 4
+      [0.0, 0.0, 1.0],    // belakang, c, 5
+      [0.0, 1.0, 0.0],    // atas, a, 6
+      [0.5, 0.5, 0.0],    // ataskanan, a, 7 
+      [0.0, 0.0, 1.0],    // belakang, d, 8
+      [0.0, 0.0, 1.0],    // belakang, e, 9
+      [1.0, 0.0, 0.0],    // kanan, b, 10
+      [0.0, -1.0, 0.0],    // bawah, b, 11
+      [-0.5, 0.5, 0.0],    // ataskiri, 12
+      [0.0, 0.0, 1.0],    // belakang, f, 13
+      [1.0, 0.0, 0.0],    // kanan, c, 14
+      [0.5, 0.5, 0.0],    // ataskanan, b, 15
+      [0.0, 0.0, 1.0],    // belakang, g, 16
       [], // 17
       [], // 18
       // + 19
-      [-1.0, 0.0, 0.0],    // merah, kiri, a, 0
-      [0.0, 0.0, -1.0],    // merah, depan, a, 1
-      [0.0, 0.0, -1.0],    // merah, depan, b, 2
-      [0.0, -1.0, 0.0],    // merah, bawah, e, 3
-      [0.0, -1.0, 0.0],    // merah, bawah, a, 4
-      [-0.5, -0.5, 0.0],    // merah, kiribawah, a, 5
-      [0.0, 0.0, -1.0],    // merah, depan, c, 6
-      [0.0, 0.0, -1.0],    // merah, depan, d, 7
-      [-1.0, 0.0, 0.0],    // merah, kiri, b, 8
-      [0.0, 0.0, -1.0],    // merah, depan, e, 9
-      [1.0, 0.0, 0.0],    // merah, kananbawah, 10
-      [0.0, 0.0, -1.0],    // merah, depan, f, 11
-      [0.0, 1.0, 0.0],    // merah, atas, b, 12
+      [-1.0, 0.0, 0.0],    // kiri, a, 0
+      [0.0, 0.0, -1.0],    // depan, a, 1
+      [0.0, 0.0, -1.0],    // depan, b, 2
+      [0.0, -1.0, 0.0],    // bawah, e, 3
+      [0.0, -1.0, 0.0],    // bawah, a, 4
+      [-0.5, -0.5, 0.0],    // kiribawah, a, 5
+      [0.0, 0.0, -1.0],    // depan, c, 6
+      [0.0, 0.0, -1.0],    // depan, d, 7
+      [-1.0, 0.0, 0.0],    // kiri, b, 8
+      [0.0, 0.0, -1.0],    // depan, e, 9
+      [1.0, 0.0, 0.0],    // kananbawah, 10
+      [0.0, 0.0, -1.0],    // depan, f, 11
+      [0.0, 1.0, 0.0],    // atas, b, 12
       [], // 13
-      [0.0, -1.0, 0.0],    // merah, bawah, d, 14
-      [0.0, 0.0, -1.0],    // merah, depan, g, 15
-      [0.0, -1.0, 0.0],    // merah, bawah, c, 16
-      [-0.5, -0.5, 0.0],    // merah, kiribawah, b, 17
+      [0.0, -1.0, 0.0],    // bawah, d, 14
+      [0.0, 0.0, -1.0],    // depan, g, 15
+      [0.0, -1.0, 0.0],    // bawah, c, 16
+      [-0.5, -0.5, 0.0],    // kiribawah, b, 17
       [], // 18
     ],
   }
@@ -552,8 +552,8 @@ function main() {
   }
 
   function render() {
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    drawVertices(cubeVertices, 100, true);
+    gl.clearColor(0.055, 0.01, 0.09, 1.0);
+    drawVertices(cubeVertices, 1, true);
     drawVertices(firstRVertices, 1, false);
     drawVertices(secondRVertices, 300, false);
     requestAnimationFrame(render);
