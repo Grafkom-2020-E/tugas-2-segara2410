@@ -126,7 +126,7 @@ function main() {
       [0.47, 0.59, 1.0],    // birupastel, belakang, d, 8
       [0.47, 0.59, 1.0],    // birupastel, belakang, e, 9
       [0.9, 0.94, 0.3],    // kuning, kanan, b, 10
-      [0.47, 0.59, 1.0],    // birupastel, bawah, b, 11
+      [0.9, 0.94, 0.3],    // birupastel, bawah, b, 11
       [0.9, 0.94, 0.3],    // kuning, ataskiri, 12
       [0.47, 0.59, 1.0],    // birupastel, belakang, f, 13
       [0.9, 0.94, 0.3],    // kuning, kanan, c, 14
@@ -138,8 +138,8 @@ function main() {
       [0.9, 0.94, 0.3],    // kuning, kiri, a, 0
       [0.47, 0.59, 1.0],    // birupastel, depan, a, 1
       [0.47, 0.59, 1.0],    // birupastel, depan, b, 2
-      [0.47, 0.59, 1.0],    // birupastel, bawah, e, 3
-      [0.47, 0.59, 1.0],    // birupastel, bawah, a, 4
+      [0.9, 0.94, 0.3],    // birupastel, bawah, e, 3
+      [0.9, 0.94, 0.3],    // birupastel, bawah, a, 4
       [0.9, 0.94, 0.3],    // kuning, kiribawah, a, 5
       [0.47, 0.59, 1.0],    // birupastel, depan, c, 6
       [0.47, 0.59, 1.0],    // birupastel, depan, d, 7
@@ -149,9 +149,9 @@ function main() {
       [0.47, 0.59, 1.0],    // birupastel, depan, f, 11
       [0.9, 0.94, 0.3],    // kuning, atas, b, 12
       [], // 13
-      [0.47, 0.59, 1.0],    // birupastel, bawah, d, 14
+      [0.9, 0.94, 0.3],    // birupastel, bawah, d, 14
       [0.47, 0.59, 1.0],    // birupastel, depan, g, 15
-      [0.47, 0.59, 1.0],    // birupastel, bawah, c, 16
+      [0.9, 0.94, 0.3],    // birupastel, bawah, c, 16
       [0.9, 0.94, 0.3],    // kuning, kiribawah, b, 17
       [], // 18
       // + 38
@@ -458,7 +458,18 @@ function main() {
   var u_Projection = gl.getUniformLocation(shaderProgram, 'u_Projection');
   var model = glMatrix.mat4.create();
   var view = glMatrix.mat4.create();
+  glMatrix.mat4.lookAt(view,
+    [0.0, 0.0, 2.0], // di mana posisi kamera (posisi)
+    [0.0, 0.0, -2.0], // ke mana kamera menghadap (vektor)
+    [0.0, 1.0, 0.0] // ke mana arah atas kamera (vektor)
+  );
   var projection = glMatrix.mat4.create();
+  glMatrix.mat4.perspective(projection, 
+      glMatrix.glMatrix.toRadian(90), // fov dalam radian
+      1.0,  // rasio aspek
+      0.5,  // near
+      10.0  // far
+  );
   gl.uniformMatrix4fv(u_Projection, false, projection);
 
   var uNormalModel = gl.getUniformLocation(shaderProgram, 'u_NormalModel');
@@ -478,7 +489,7 @@ function main() {
 
   let lightYPosition = 0;
   const distanceYMovement = 0.01;
-  const boundaryYMovement = 0.95;
+  const boundaryYMovement = 1.85;
   function onKeyDown(event) {
     console.log(event.keyCode);
     if (event.keyCode == 68) {  // D = 68
