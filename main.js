@@ -563,7 +563,7 @@ function main() {
   }
 
   function render() {
-    gl.clearColor(0.055, 0.01, 0.09, 1.0);
+    gl.clearColor(0.055, 0.01, 0.09, 0.2);
     drawVertices(cubeVertices, 1, true);
     drawVertices(firstRVertices, 1, false);
     drawVertices(secondRVertices, 300, false);
