@@ -379,11 +379,6 @@ function main() {
   quad(5, 4, 7, 6, cube, cubeVertices); // BELAKANG
   quad(6, 2, 1, 5, cube, cubeVertices); // BAWAH
 
-  quad(1, 2, 3, 0, square, squareVertices); // DEPAN
-  quad(2, 6, 7, 3, square, squareVertices); // KANAN
-  quad(3, 7, 4, 0, square, squareVertices); // ATAS
-  quad(4, 5, 1, 0, square, squareVertices); // KIRI
-  quad(5, 4, 7, 6, square, squareVertices); // BELAKANG
   quad(6, 2, 1, 5, square, squareVertices); // BAWAH
   // //R 1
   let quadOffset = 19;
