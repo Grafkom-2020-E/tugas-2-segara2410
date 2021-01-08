@@ -474,20 +474,52 @@ function main() {
 
   var uNormalModel = gl.getUniformLocation(shaderProgram, 'u_NormalModel');
   var uAmbientColor = gl.getUniformLocation(shaderProgram, 'u_AmbientColor');
-  gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
   var uLightColor = gl.getUniformLocation(shaderProgram, 'u_LightColor');
-  gl.uniform3fv(uLightColor, [1, 1, 1]);
   var uLightPosition = gl.getUniformLocation(shaderProgram, 'u_LightPosition');
-  var uSpecularColor = gl.getUniformLocation(shaderProgram, 'u_Specularcolor');
   var shininessVal = gl.getUniformLocation(shaderProgram, 'shininessVal');
 
-  const moveCubeY = (distance) => {
-    for (let i = 1; i <= 36; i++) {
-      cubeVertices[1 + (9 * (i - 1))] += distance;
-    };
-  };
+  let lightXPosition = 0;
+  let lightZPosition = 0;
+  function onKeyDown(event) {
+    // console.log(event.keyCode);
+    if (event.keyCode == 37) {
+      for(let i = 0 ; i < 36 * 9; i++){
+        if(i%9 == 0){
+          cubeVertices[i] -= 0.01;
+        }
+      }
 
-  let lightYPosition = 0;
+      lightXPosition -= 0.01;
+    } // Left = 37
+    else if (event.keyCode == 39) {
+      for(let i = 0 ; i < 36 * 9; i++){
+        if(i%9 == 0){
+          cubeVertices[i] += 0.01;
+        }
+      }
+
+      lightXPosition += 0.01;
+    } // Right = 39
+    if (event.keyCode == 38) {
+      for(let i = 0 ; i < 36 * 9; i++){
+        if(i%9 == 0){
+          cubeVertices[2 + i] -= 0.01;
+        }
+      }
+
+      lightZPosition -= 0.01;
+    } // Up = 38
+    if (event.keyCode == 40) {
+      for(let i = 0 ; i < 36 * 9; i++){
+        if(i%9 == 0){
+          cubeVertices[2 + i] += 0.01;
+        }
+      }
+
+      lightZPosition += 0.01;
+    } // Down = 40
+  }
+  document.addEventListener('keydown', onKeyDown);
 
   const drawVertices = (objectVertices, shininess, clear) => {
     var vertexBuffer = gl.createBuffer();
@@ -528,8 +560,6 @@ function main() {
    
     gl.uniformMatrix4fv(u_Model, false, model);
     gl.uniformMatrix4fv(u_View, false, view);
-    gl.uniform3fv(uLightPosition, [0, lightYPosition, 0]);
-    gl.uniform3fv(uSpecularColor, [1.0, 1.0, 1.0]);
     var normalModel = glMatrix.mat3.create();
     gl.uniform1f(shininessVal, shininess);
     glMatrix.mat3.normalFromMat4(normalModel, model);
@@ -544,6 +574,9 @@ function main() {
 
   function render() {
     gl.clearColor(0.055, 0.01, 0.09, 0.2);
+    gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
+    gl.uniform3fv(uLightColor, [1, 1, 1]);
+    gl.uniform3fv(uLightPosition, [lightXPosition, 0, lightZPosition]);
     drawVertices(cubeVertices, 1, true);
     drawVertices(firstRVertices, 1, false);
     drawVertices(secondRVertices, 300, false);
