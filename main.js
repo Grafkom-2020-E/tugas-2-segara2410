@@ -5,6 +5,7 @@ function main() {
   let cubeVertices = [];
   let firstRVertices = [];
   let secondRVertices = [];
+  let squareVertices = [];
 
   const rLetters = {
     objectPoints: [
@@ -317,6 +318,41 @@ function main() {
     ],
   }
 
+  const square = {
+    objectPoints: [
+      [-0.5, -0.8,  0.5],   // A, 0
+      [-0.5, -0.8,  0.5],   // B, 1
+      [ 0.5, -0.8,  0.5],   // C, 2 
+      [ 0.5, -0.8,  0.5],   // D, 3
+      [-0.5, -0.8, -0.5],   // E, 4
+      [-0.5, -0.8, -0.5],   // F, 5
+      [ 0.5, -0.8, -0.5],   // G, 6
+      [ 0.5, -0.8, -0.5]    // H, 7 
+    ],
+  
+    objectColors: [
+      [],
+      [0.012, 0.439, 0.216],    // putih
+      [0.012, 0.439, 0.216],    // putih
+      [0.012, 0.439, 0.216],    // putih
+      [0.012, 0.439, 0.216],    // putih
+      [0.012, 0.439, 0.216],    // putih
+      [0.012, 0.439, 0.216],    // putih
+      []
+    ],
+  
+    objectNormals: [
+      [],
+      [0.0, 0.0, -1.0],    // depan
+      [-1.0, 0.0, 0.0],    // kanan
+      [0.0, -1.0, 0.0],    // atas
+      [1.0, 0.0, 0.0],   // kiri
+      [0.0, 0.0, 1.0],   // belakang
+      [0.0, 1.0, 0.0],   // bawah
+      []
+    ],
+  }
+
   function quad(a, b, c, d, object, objectVertices) {
     var indices = [a, b, c, c, d, a];
     for (var i=0; i<indices.length; i++) {
@@ -334,7 +370,7 @@ function main() {
       }
     }
   }
-  
+
   //Cube
   quad(1, 2, 3, 0, cube, cubeVertices); // DEPAN
   quad(2, 6, 7, 3, cube, cubeVertices); // KANAN
@@ -343,6 +379,12 @@ function main() {
   quad(5, 4, 7, 6, cube, cubeVertices); // BELAKANG
   quad(6, 2, 1, 5, cube, cubeVertices); // BAWAH
 
+  quad(1, 2, 3, 0, square, squareVertices); // DEPAN
+  quad(2, 6, 7, 3, square, squareVertices); // KANAN
+  quad(3, 7, 4, 0, square, squareVertices); // ATAS
+  quad(4, 5, 1, 0, square, squareVertices); // KIRI
+  quad(5, 4, 7, 6, square, squareVertices); // BELAKANG
+  quad(6, 2, 1, 5, square, squareVertices); // BAWAH
   // //R 1
   let quadOffset = 19;
   quad(1, 2, 3, 0, rLetters, firstRVertices); // belakang, a
@@ -686,12 +728,13 @@ function main() {
       drawVertices(cubeVertices, 1, true);
       drawVertices(firstRVertices, 1, false);
       drawVertices(secondRVertices, 300, false);
-    } else {
+  } else {
       gl.uniform3fv(uLightColor, [0, 0, 0]);
       drawVertices(cubeVertices, 0, true);
       drawVertices(firstRVertices, 0, false);
       drawVertices(secondRVertices, 0, false);
     }
+    drawVertices(squareVertices, 0, false);
 
     requestAnimationFrame(render);
   }
