@@ -480,8 +480,12 @@ function main() {
 
   let lightXPosition = 0;
   let lightZPosition = 0;
+  let lightOn = true;
   function onKeyDown(event) {
     // console.log(event.keyCode);
+    if (event.keyCode == 32) {
+      lightOn = !lightOn;
+    }
     if (event.keyCode == 37) {
       for(let i = 0 ; i < 36 * 9; i++){
         if(i%9 == 0){
@@ -675,12 +679,21 @@ function main() {
     model = glMatrix.mat4.create(); // Matriks model kita reset ulang setiap kali render
     glMatrix.mat4.multiply(model, model, rotation);
     glMatrix.mat4.multiply(uLightPosition, uLightPosition, -rotation);
-    gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
-    gl.uniform3fv(uLightColor, [1, 1, 1]);
     gl.uniform3fv(uLightPosition, [lightXPosition, 0, lightZPosition]);
-    drawVertices(cubeVertices, 1, true);
-    drawVertices(firstRVertices, 1, false);
-    drawVertices(secondRVertices, 300, false);
+    if (lightOn) {
+      gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
+      gl.uniform3fv(uLightColor, [1, 1, 1]);
+      drawVertices(cubeVertices, 1, true);
+      drawVertices(firstRVertices, 1, false);
+      drawVertices(secondRVertices, 300, false);
+    } else {
+      gl.uniform3fv(uAmbientColor, [0, 0, 0]);
+      gl.uniform3fv(uLightColor, [0, 0, 0]);
+      drawVertices(cubeVertices, 0, true);
+      drawVertices(firstRVertices, 0, false);
+      drawVertices(secondRVertices, 0, false);
+    }
+
     requestAnimationFrame(render);
   }
 
