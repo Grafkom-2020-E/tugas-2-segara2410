@@ -680,14 +680,13 @@ function main() {
     glMatrix.mat4.multiply(model, model, rotation);
     glMatrix.mat4.multiply(uLightPosition, uLightPosition, -rotation);
     gl.uniform3fv(uLightPosition, [lightXPosition, 0, lightZPosition]);
+    gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
     if (lightOn) {
-      gl.uniform3fv(uAmbientColor, [0.3, 0.3, 0.3]);
       gl.uniform3fv(uLightColor, [1, 1, 1]);
       drawVertices(cubeVertices, 1, true);
       drawVertices(firstRVertices, 1, false);
       drawVertices(secondRVertices, 300, false);
     } else {
-      gl.uniform3fv(uAmbientColor, [0, 0, 0]);
       gl.uniform3fv(uLightColor, [0, 0, 0]);
       drawVertices(cubeVertices, 0, true);
       drawVertices(firstRVertices, 0, false);
